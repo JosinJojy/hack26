@@ -1,1 +1,4 @@
-<svg width='400' height='200' xmlns='http://www.w3.org/2000/svg'><rect width='100%' height='100%' fill='transparent'/><text x='50%' y='50%' font-family='sans-serif' font-size='48' font-weight='bold' fill='#8ba3c7' text-anchor='middle' dominant-baseline='middle' style='text-transform: capitalize'>polygon</text></svg>
+<svg viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg">
+  <path d="M10 5 L20 10 V20 L10 25 L0 20 V10 Z M10 20 L20 25 V35 L10 40 L0 35 V25 Z" fill="#7b3fe4"/>
+  <text x="30" y="28" font-family="Helvetica, Arial, sans-serif" font-size="24" font-weight="bold" fill="#fff" letter-spacing="-0.5">polygon</text>
+</svg>

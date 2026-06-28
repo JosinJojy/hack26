@@ -64,7 +64,7 @@ export default function SponsorsSection() {
               },
             },
           }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8"
+          className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8"
         >
           {sponsors.map((sponsor, index) => (
             <motion.div
@@ -91,12 +91,12 @@ export default function SponsorsSection() {
                 <div className="absolute top-0 left-0 w-4 h-4 border-t-[2px] border-l-[2px] border-transparent transition-all duration-500 z-10 group-hover:border-[#0ea5e9]" />
                 <div className="absolute bottom-0 right-0 w-4 h-4 border-b-[2px] border-r-[2px] border-transparent transition-all duration-500 z-10 group-hover:border-[#0ea5e9]" />
 
-                <div className="relative z-20 w-full h-full flex items-center justify-center">
+                <div className="relative z-20 w-[75%] h-[55%] flex items-center justify-center mx-auto">
                   <Image
                     src={sponsor.logo}
                     alt={sponsor.alt}
                     fill
-                    className="object-contain opacity-80 grayscale group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300 group-hover:scale-[1.03]"
+                    className="object-contain opacity-80 group-hover:opacity-100 transition-all duration-300 group-hover:scale-[1.03]"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                   />
                 </div>

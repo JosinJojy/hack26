@@ -1,7 +1,7 @@
 "use client";
 
-import { useRef, useState, MouseEvent } from "react";
-import { motion, useScroll, useTransform, useMotionValue, useSpring } from "framer-motion";
+import { useRef, useState, MouseEvent, useEffect } from "react";
+import { motion, useScroll, useTransform, useMotionValue, useSpring, useMotionValueEvent } from "framer-motion";
 import Image from "next/image";
 
 import page2Img from "../../../assets/landing/page2.png";
@@ -130,6 +130,29 @@ export default function AboutAndTracksSection() {
     offset: ["start start", "end end"]
   });
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!targetRef.current) return;
+      const rect = targetRef.current.getBoundingClientRect();
+      const vh = window.innerHeight;
+      
+      // Strict viewport occupancy check to enable native snapping only when trapped inside
+      if (rect.top <= 5 && rect.bottom >= vh - 5) {
+        document.documentElement.style.scrollSnapType = 'y mandatory';
+      } else {
+        document.documentElement.style.scrollSnapType = 'none';
+      }
+    };
+    
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      document.documentElement.style.scrollSnapType = 'none';
+    };
+  }, []);
+
   const x = useTransform(scrollYProgress, [0, 1], ["0%", "-50%"]);
   const robotX = useTransform(scrollYProgress, [0, 1], ["20%", "-20%"]);
 
@@ -137,6 +160,14 @@ export default function AboutAndTracksSection() {
     <>
       <style dangerouslySetInnerHTML={{ __html: globalStyles }} />
       <section ref={targetRef} id="about" className="relative h-[200vh] bg-[#010005]">
+        
+        {/* Native CSS Snap Points */}
+        <div className="absolute top-[-100vh] w-full h-[1px] snap-start pointer-events-none" />
+        <div className="absolute top-0 w-full h-[1px] snap-start pointer-events-none" />
+        <div className="absolute top-[100vh] w-full h-[1px] snap-start pointer-events-none" />
+        <div className="absolute bottom-0 w-full h-[1px] snap-start pointer-events-none" />
+        <div className="absolute bottom-[-100vh] w-full h-[1px] snap-start pointer-events-none" />
+
         <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center">
           
           <motion.div 

@@ -20,6 +20,7 @@ export default function HackathonTimeline() {
   
   const sectionRef = useRef<HTMLElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+  const headingRef = useRef<HTMLDivElement>(null);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -38,15 +39,12 @@ export default function HackathonTimeline() {
 
   useEffect(() => {
     setMounted(true);
-    if (typeof window !== 'undefined' && window.innerWidth < 1024) {
-      setPhase(3);
-    }
   }, []);
 
   useEffect(() => {
     if (!mounted) return;
-    if (typeof window !== 'undefined' && window.innerWidth < 1024) return;
     
+    // Trigger animation only when the TIMELINE heading is in view
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting) {
@@ -54,11 +52,11 @@ export default function HackathonTimeline() {
           observer.disconnect();
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.5 } // Ensure the heading is clearly visible
     );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
+    if (headingRef.current) {
+      observer.observe(headingRef.current);
     }
 
     return () => observer.disconnect();
@@ -66,11 +64,11 @@ export default function HackathonTimeline() {
 
   useEffect(() => {
     if (phase === 1) {
-      const t = setTimeout(() => setPhase(2), 1800); 
+      const t = setTimeout(() => setPhase(2), 1000); // Sped up Phase 1 hold time
       return () => clearTimeout(t);
     }
     if (phase === 2) {
-      const t = setTimeout(() => setPhase(3), 1500); 
+      const t = setTimeout(() => setPhase(3), 900); // 0.2s delay + 0.6s animation = 0.8s. 0.9s buffer.
       return () => clearTimeout(t);
     }
   }, [phase]);
@@ -81,11 +79,11 @@ export default function HackathonTimeline() {
 
   const isExpanded = phase === 3;
   
-  // Explicitly typed to 'any' to fix typescript errors with tuple vs array parsing for 'ease'
+  // Faster, snappier collapse transition
   const phase2Transition: any = { 
-    duration: 1.0, 
+    duration: 0.6, 
     ease: "easeInOut", 
-    delay: phase === 2 ? 0.4 : 0 
+    delay: phase === 2 ? 0.2 : 0 
   };
 
   const progressHeight = isExpanded ? `${(activeIndex + 1) * 20}%` : "0%";
@@ -103,7 +101,7 @@ export default function HackathonTimeline() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70%] h-[40%] bg-[#0ea5e9]/5 blur-[120px] rounded-[100%]" />
       </div>
 
-      <div className="relative z-10 flex flex-col items-center gap-4 mb-16 lg:mb-24 text-center px-4">
+      <div ref={headingRef} className="relative z-10 flex flex-col items-center gap-4 mb-16 lg:mb-24 text-center px-4">
         <div className="flex items-center gap-4 text-[#0ea5e9] font-medium tracking-[0.2em] text-xs uppercase">
           <span className="w-12 h-[1px] bg-[#0ea5e9]/40" />
           <span>Mission Progress</span>
@@ -116,7 +114,7 @@ export default function HackathonTimeline() {
 
       <motion.div 
          layout
-         transition={{ layout: phase === 2 ? phase2Transition : { duration: 1.0, ease: "easeInOut" } }}
+         transition={{ layout: phase === 2 ? phase2Transition : { duration: 0.6, ease: "easeInOut" } }}
          ref={containerRef} 
          className={`relative z-20 w-full max-w-6xl mx-auto flex 
            ${isExpanded ? 'flex-col gap-20 lg:gap-32 py-10 lg:py-20 px-4 md:px-12' : 'flex-row items-center h-[300px] px-4 md:px-16'}
@@ -127,13 +125,13 @@ export default function HackathonTimeline() {
          {/* Horizontal Intro Line (Phase 1 & 2) */}
          {phase < 3 && (
             <motion.div 
-               className="absolute left-16 right-16 h-[2px] top-1/2 -translate-y-1/2 bg-[#0ea5e9] shadow-[0_0_15px_#0ea5e9] origin-center z-0"
+               className="absolute left-4 right-4 md:left-16 md:right-16 h-[2px] top-1/2 -translate-y-1/2 bg-[#0ea5e9] shadow-[0_0_15px_#0ea5e9] origin-center z-0"
                initial={{ scaleX: 0, opacity: 0 }}
                animate={{ 
                  scaleX: phase === 1 ? 1 : 0, 
                  opacity: phase === 1 ? 1 : (phase === 2 ? 1 : 0) 
                }}
-               transition={phase === 2 ? phase2Transition : { duration: 1.0, ease: "easeOut" }}
+               transition={phase === 2 ? phase2Transition : { duration: 0.6, ease: "easeOut" }}
             />
          )}
 
@@ -143,7 +141,7 @@ export default function HackathonTimeline() {
                className="absolute left-[39px] lg:left-1/2 top-0 bottom-0 w-[2px] lg:-translate-x-[1px] bg-slate-800/80 origin-center z-0"
                initial={{ scaleY: 0, opacity: 0 }}
                animate={{ scaleY: 1, opacity: 1 }}
-               transition={{ duration: 1.0, ease: "easeInOut" }}
+               transition={{ duration: 0.6, ease: "easeInOut" }}
             />
          )}
 
@@ -153,7 +151,7 @@ export default function HackathonTimeline() {
                className="absolute left-[39px] lg:left-1/2 top-0 w-[2px] bg-gradient-to-b from-[#0ea5e9] to-[#38bdf8] lg:-translate-x-[1px] origin-top z-10 shadow-[0_0_15px_#0ea5e9]"
                initial={{ height: "0%", opacity: 0 }}
                animate={{ height: progressHeight, opacity: 1 }}
-               transition={{ duration: 0.6, ease: "easeOut", opacity: { delay: 0.8 } }}
+               transition={{ duration: 0.5, ease: "easeOut", opacity: { delay: 0.5 } }}
             />
          )}
 
@@ -172,7 +170,7 @@ function TimelineNode({ milestone, index, phase, activeIndex, phase2Transition }
   
   const isActive = !isExpanded || index === activeIndex;
   
-  const nodeLayoutTransition = phase === 2 ? phase2Transition : { duration: 1.0, ease: "easeInOut" };
+  const nodeLayoutTransition = phase === 2 ? phase2Transition : { duration: 0.6, ease: "easeInOut" };
   
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -223,7 +221,7 @@ function TimelineNode({ milestone, index, phase, activeIndex, phase2Transition }
                 backgroundColor: isActive ? "#fff" : "#0f172a",
                 borderColor: isActive ? "#0ea5e9" : "#334155",
              }}
-             transition={{ duration: 0.5, delay: phase === 0 ? 0 : index * 0.1 }}
+             transition={{ duration: 0.3, delay: phase === 0 ? 0 : index * 0.08 }}
              className={`w-3 h-3 border-[2px] ${isActive ? 'shadow-[0_0_20px_#0ea5e9]' : ''}`}
           />
 
@@ -233,12 +231,12 @@ function TimelineNode({ milestone, index, phase, activeIndex, phase2Transition }
                 key="intro"
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: phase === 1 ? 1 : 0, y: phase === 1 ? 0 : (phase === 2 ? -10 : 10) }}
-                transition={{ duration: 0.4, delay: phase === 1 ? 0.6 + index * 0.15 : 0 }}
-                // Text is now anchored directly to the central diamond to avoid width-shift layout glitches
-                className="absolute top-6 flex flex-col items-center text-center w-[120px] -ml-[60px] left-1/2"
+                transition={{ duration: 0.2, delay: phase === 1 ? 0.3 + index * 0.08 : 0 }}
+                // Responsive positioning to prevent overlap on small mobile screens
+                className={`absolute flex flex-col items-center text-center w-[80px] md:w-[120px] -ml-[40px] md:-ml-[60px] left-1/2 ${index % 2 !== 0 ? '-top-14 md:top-6' : 'top-6'}`}
              >
-                <p className="text-white font-mono font-bold text-sm whitespace-nowrap uppercase">{milestone.date}</p>
-                <p className="text-[#0ea5e9] text-[10px] uppercase tracking-widest mt-1 whitespace-nowrap">{milestone.title}</p>
+                <p className="text-white font-mono font-bold text-[10px] md:text-sm whitespace-nowrap uppercase">{milestone.date}</p>
+                <p className="text-[#0ea5e9] text-[8px] md:text-[10px] uppercase tracking-widest mt-1 whitespace-nowrap">{milestone.title}</p>
              </motion.div>
           )}
           </AnimatePresence>
@@ -251,7 +249,7 @@ function TimelineNode({ milestone, index, phase, activeIndex, phase2Transition }
              key="card"
              initial={{ opacity: 0 }}
              animate={{ opacity: 1 }}
-             transition={{ duration: 0.8, delay: 0.6 + index * 0.1 }}
+             transition={{ duration: 0.5, delay: 0.3 + index * 0.08 }}
              className={`w-full pl-24 lg:pl-0 lg:w-1/2 flex ${isLeft ? 'lg:justify-end lg:pr-16' : 'lg:justify-start lg:pl-16'}`}
           >
              <motion.div 

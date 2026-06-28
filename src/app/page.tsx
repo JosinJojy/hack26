@@ -2,7 +2,9 @@ import HeroSection from '@/components/landing/HeroSection';
 import AboutAndTracksSection from '@/components/landing/AboutAndTracksSection';
 import HackathonTimeline from '@/components/timeline/HackathonTimeline';
 import SponsorsSection from '@/components/sponsors/SponsorsSection';
+import FAQSection from '@/components/faq/FAQSection';
 import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
 
 export default function Home() {
   return (
@@ -12,6 +14,8 @@ export default function Home() {
       <AboutAndTracksSection />
       <HackathonTimeline />
       <SponsorsSection />
+      <FAQSection />
+      <Footer />
     </main>
   );
 }
