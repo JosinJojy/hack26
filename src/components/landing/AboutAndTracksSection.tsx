@@ -80,20 +80,6 @@ function TrackCard({ track, index }: { track: any; index: number }) {
             style={{ top: "50%", left: "50%", transform: "translate(-50%, -50%)" }}
           />
 
-          {/* <div 
-            className="relative mb-10 mt-2 self-start flex items-center justify-center w-14 h-14"
-            style={{ transform: "translateZ(30px)" }}
-          >
-            <div className="absolute inset-[-4px] border border-[#0284c7]/20 rounded-full group-hover:border-[#0284c7]/80 group-hover:scale-110 transition-all duration-500 animate-[spin_6s_linear_infinite]" />
-            <div className="absolute inset-[-8px] border border-dashed border-[#0284c7]/20 rounded-full group-hover:border-[#0284c7]/40 transition-all duration-500 animate-[spin_10s_linear_infinite_reverse]" />
-            
-            <div className="relative z-10 flex items-center justify-center w-full h-full rounded-full bg-[#01020a] border border-slate-700/80 group-hover:border-[#0284c7] group-hover:shadow-[0_0_20px_rgba(2,132,199,0.4)] transition-all duration-500">
-              <span className="text-[#0284c7] text-2xl opacity-60 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300 group-hover:drop-shadow-[0_0_8px_rgba(2,132,199,0.8)]">
-                {track.icon}
-              </span>
-            </div>
-          </div> */}
-
           <h3 
             className="relative z-10 text-xl font-bold tracking-[0.15em] text-slate-200 mb-3 group-hover:text-[#0284c7] transition-colors duration-300 font-mono uppercase"
             style={{ transform: "translateZ(20px)" }}
@@ -159,7 +145,7 @@ export default function AboutAndTracksSection() {
   return (
     <>
       <style dangerouslySetInnerHTML={{ __html: globalStyles }} />
-      <section ref={targetRef} id="about" className="relative h-[200vh] bg-[#010005]">
+      <motion.section ref={targetRef} id="about" className="relative h-[200vh] bg-[#010005]">
         
         {/* Native CSS Snap Points */}
         <div className="absolute top-[-100vh] w-full h-[1px] snap-start pointer-events-none" />
@@ -189,14 +175,41 @@ export default function AboutAndTracksSection() {
             style={{ x }} 
             className="relative z-10 flex w-[200vw] h-full"
           >
-            <div className="w-screen h-full flex items-center px-6 md:px-12 xl:px-24">
+
+          <div id="tracks" className="w-screen h-full flex items-center justify-baseline px-6 md:px-12 xl:px-24">
+              <div className="w-full md:w-[55%] flex flex-col gap-10">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, ease: "easeOut" }}
+                  className="flex flex-col md:items-start gap-4"
+                >
+                  <div className="flex items-center gap-4 text-[#0284c7] font-medium tracking-[0.15em] text-sm uppercase">
+                    <span className="w-8 h-[1px] bg-[#0284c7]" />
+                    <span>Domains</span>
+                  </div>
+                  <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight font-[family-name:var(--font-blanka)]">
+                    TRACKS
+                  </h2>
+                </motion.div>
+                
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
+                  {tracks.map((track, i) => (
+                    <TrackCard key={i} track={track} index={i} />
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <div className="w-screen h-full flex items-center justify-end px-6 md:px-12 xl:px-24">
               <div className="w-full md:w-1/2 flex flex-col gap-10">
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.8, ease: "easeOut" }}
-                  className="flex flex-col gap-4"
+                  className="flex flex-col md:items-end gap-4"
                 >
                   <div className="flex items-center gap-4 text-[#0284c7] font-medium tracking-[0.15em] text-sm uppercase">
                     <span className="w-8 h-[1px] bg-[#0284c7]" />
@@ -232,35 +245,11 @@ export default function AboutAndTracksSection() {
               </div>
             </div>
 
-            <div id="tracks" className="w-screen h-full flex items-center justify-end px-6 md:px-12 xl:px-24">
-              <div className="w-full md:w-[55%] flex flex-col gap-10">
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.8, ease: "easeOut" }}
-                  className="flex flex-col md:items-end gap-4"
-                >
-                  <div className="flex items-center gap-4 text-[#0284c7] font-medium tracking-[0.15em] text-sm uppercase">
-                    <span className="w-8 h-[1px] bg-[#0284c7]" />
-                    <span>Domains</span>
-                  </div>
-                  <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight font-[family-name:var(--font-blanka)]">
-                    TRACKS
-                  </h2>
-                </motion.div>
-                
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
-                  {tracks.map((track, i) => (
-                    <TrackCard key={i} track={track} index={i} />
-                  ))}
-                </div>
-              </div>
-            </div>
+            
 
           </motion.div>
         </div>
-      </section>
+      </motion.section>
     </>
   );
 }

@@ -15,7 +15,6 @@ type Milestone = typeof milestones[0];
 
 export default function HackathonTimeline() {
   const [phase, setPhase] = useState(0); // 0=idle, 1=horizontal draw, 2=collapse, 3=vertical expand
-  const [mounted, setMounted] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
   
   const sectionRef = useRef<HTMLElement>(null);
@@ -38,12 +37,6 @@ export default function HackathonTimeline() {
   });
 
   useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  useEffect(() => {
-    if (!mounted) return;
-    
     // Trigger animation only when the TIMELINE heading is in view
     const observer = new IntersectionObserver(
       (entries) => {
@@ -60,7 +53,7 @@ export default function HackathonTimeline() {
     }
 
     return () => observer.disconnect();
-  }, [mounted]);
+  }, []);
 
   useEffect(() => {
     if (phase === 1) {
@@ -72,10 +65,6 @@ export default function HackathonTimeline() {
       return () => clearTimeout(t);
     }
   }, [phase]);
-
-  if (!mounted) {
-    return <section className="relative w-full bg-[#010005] py-24 lg:py-40 min-h-screen" />;
-  }
 
   const isExpanded = phase === 3;
   
