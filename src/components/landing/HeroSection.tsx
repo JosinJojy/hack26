@@ -3,6 +3,7 @@
 import { useRef, useEffect, useState } from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import Image from "next/image";
+import CountdownTimer from "./CountdownTimer";
 
 import layer1Img from "../../../assets/landing/Layer 1.png";
 import layer2Img from "../../../assets/landing/Layer 2.png";
@@ -22,6 +23,18 @@ export default function HeroSection() {
 
     window.addEventListener("mousemove", handleMouseMove);
     return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
+
+  // Inject Devfolio script
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://apply.devfolio.co/v2/sdk.js";
+    script.async = true;
+    script.defer = true;
+    document.body.appendChild(script);
+    return () => {
+      document.body.removeChild(script);
+    };
   }, []);
 
   const { scrollYProgress } = useScroll({
@@ -50,8 +63,20 @@ export default function HeroSection() {
   return (
     <section
       ref={containerRef}
-      className="relative w-full h-[100vh] min-h-[800px] overflow-hidden bg-[#020617]"
+      className="relative w-full h-[100dvh] overflow-hidden bg-[#010005]"
     >
+      {/* Logos Header */}
+      <div className="absolute top-0 left-0 w-full p-6 md:p-8 flex flex-row gap-8 md:gap-0 justify-start md:justify-between items-start z-50 pointer-events-auto">
+        <div className="text-lg md:text-xl font-bold text-white tracking-[0.15em] flex flex-col items-start cursor-pointer hover:text-[#0284c7] transition-colors font-mono">
+          <span>IEEE<span className="text-[#0284c7]">.</span></span>
+          <span className="text-[8px] font-mono text-slate-400/80 mt-1 uppercase tracking-[0.2em]">Logo Placeholder</span>
+        </div>
+        <div className="text-base md:text-lg font-bold text-slate-200 tracking-[0.1em] flex flex-col items-start md:items-end cursor-pointer hover:text-[#0284c7] transition-colors font-mono">
+          <span>IEEE MACE SB</span>
+          <span className="text-[8px] font-mono text-slate-400/80 mt-1 uppercase tracking-[0.2em]">Logo Placeholder</span>
+        </div>
+      </div>
+
       {/* Deep Space Background Glow */}
       <div className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none">
         <div className="w-[800px] h-[800px] rounded-full bg-[#2563EB]/10 blur-[150px]" />
@@ -136,57 +161,48 @@ export default function HeroSection() {
       {/* 4. Vignette / Edge darkening */}
       <div className="absolute inset-0 z-20 shadow-[inset_0_0_150px_rgba(2,6,23,0.9)] pointer-events-none" />
 
-      {/* Content Container (Left-aligned on md+, Centered on mobile, Upper region) */}
+      {/* Content Container (Left-aligned on md+, Centered on mobile) */}
       <motion.div
-        className="relative z-25 flex flex-col justify-start pt-[22vh] md:justify-center md:pt-10 h-full w-full max-w-7xl mx-auto px-6 md:px-12 xl:px-24"
+        className="relative z-40 flex flex-col justify-center items-center md:items-start h-full w-full max-w-7xl mx-auto px-6 md:px-12 xl:px-24 pointer-events-auto"
         style={{ y: contentY, opacity: contentOpacity }}
       >
         <motion.div
-          initial={{ opacity: 0.01, x: -40 }}
-          animate={{ opacity:1, x: 0 }}
+          initial={{ opacity: 0.01, x: "var(--start-x)", y: "var(--start-y)" }}
+          animate={{ opacity: 1, x: "0px", y: "0px" }}
           transition={{ duration: 2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-          className="flex flex-col gap-5 max-w-2xl items-center text-center md:items-start md:text-left mx-auto md:mx-0 w-full"
+          className="flex flex-col gap-2 max-w-2xl items-center text-center md:items-start md:text-left mx-auto md:mx-0 w-full [--start-x:0px] [--start-y:40px] md:[--start-x:-40px] md:[--start-y:0px]"
         >
 
           {/* Title */}
-          <h1 className="text-[5.5rem] sm:text-[6.5rem] md:text-8xl lg:text-9xl font-bold text-white tracking-tighter leading-[0.95] drop-shadow-lg font-[family-name:var(--font-blanka)]">
-            IEEE
-            <br />
+          <h1 className="text-[5rem] sm:text-[6.5rem] md:text-8xl lg:text-9xl font-bold text-white tracking-tighter leading-[0.95] drop-shadow-lg font-[family-name:var(--font-blanka)]">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-100 to-[#38BDF8]">
               {">.hack26"}
             </span>
           </h1>
 
           {/* Subtitle */}
-          <p className="text-base sm:text-lg md:text-xl text-slate-300 font-light leading-relaxed max-w-md mt-2 drop-shadow-md px-2 md:px-0">
+          <p className="text-base sm:text-lg md:text-xl text-slate-300/90 font-light leading-relaxed max-w-md mt-2 px-4 md:px-0 font-sans">
             Build bold ideas, ship real prototypes, and compete with the next
             generation of student innovators.
           </p>
 
-          {/* CTAs */}
-          {/* <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mt-8">
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="relative group overflow-hidden px-8 py-4 bg-[#1D4ED8] text-white rounded-full font-semibold shadow-[0_0_20px_rgba(29,78,216,0.4)] transition-all"
-            >
-              <div className="absolute inset-0 bg-gradient-to-r from-[#2563EB] to-[#38BDF8] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <span className="relative z-10 flex items-center justify-center gap-2 tracking-wide">
-                Join Now
-                <svg className="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
-              </span>
-            </motion.button>
+          {/* Countdown Timer */}
+          <CountdownTimer targetDate="2026-09-04T00:00:00" />
 
+          {/* CTAs - Devfolio Native Button styling */}
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mt-8 w-full sm:w-auto px-4 sm:px-0">
             <motion.button
-              whileHover={{ scale: 1.05, backgroundColor: "rgba(255,255,255,0.05)" }}
-              whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 bg-transparent border border-white/20 hover:border-white/40 text-white rounded-full font-semibold transition-all backdrop-blur-sm text-center tracking-wide"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className="flex items-center justify-center gap-3 px-8 py-3.5 bg-[#3770FF] hover:bg-[#2B5DE5] text-white rounded-md font-semibold text-[17px] transition-colors shadow-lg w-full sm:w-auto min-w-[300px]"
             >
-              Explore Event
+              <svg className="w-6 h-6" viewBox="0 0 115.46 123.46" fill="#fff" xmlns="http://www.w3.org/2000/svg">
+                <path d="M115.46 68a55.43 55.43 0 0 1-50.85 55.11S28.12 131 16 123.76V68.13c0-15.54 11.23-26.68 26.68-26.68h72.78z"/>
+                <path d="M115.46 56.46a55.43 55.43 0 0 0-50.85-55.11S28.12-6 16 1.24v55.63c0 15.54 11.23 26.68 26.68 26.68h72.78z"/>
+              </svg>
+              Apply with Devfolio
             </motion.button>
-          </div> */}
+          </div>
         </motion.div>
       </motion.div>
     </section>
