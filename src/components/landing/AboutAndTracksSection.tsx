@@ -7,13 +7,20 @@ import Image from "next/image";
 import page2Img from "../../../assets/landing/page2.png";
 
 const tracks = [
-  { title: "Generative AI", description: "Architect intelligent systems leveraging large language models and advanced generative frameworks.", icon: "✧" },
-  { title: "Web3 & Block", description: "Design decentralized applications, robust smart contracts, and scalable Web3 infrastructure.", icon: "⎈" },
-  { title: "HealthTech", description: "Drive innovations in modern healthcare, diagnostics, and seamless patient management.", icon: "⨁" },
-  { title: "FinTech", description: "Build solutions for financial inclusion, decentralized finance, and next-gen banking.", icon: "⟠" }
+  { title: "Brick By Byte: Buidling Cities that think", description: "Intelligent smart city ecosystems that sense, connect, respond to a rapidly changing world", icon: "✧" },
+  { title: "The World Redesigned for her", description: "A world designed around women's needs, experience, and anticipations", icon: "⎈" },
+  { title: "Reclaiming Popcorn Brains", description: "Technologies that empower individuals to break unhealthy digital cycles and reclaim their time and attention", icon: "⨁" },
+  { title: "Safe Sources & Zero Hunger", description: "Solutions that strengthen security by rethinking how we grow, manage, and sustain resources", icon: "⟠" },
+  { title: "Care Beyound Labels", description: "Innovations that address often-overlooked dimentions of health and well-being", icon: "⟠" },
+  { title: "Industry 4.0: Automation for good", description: "Smarter ecosystems where productivity, sustainability, and safety go hand in hand", icon: "⟠" },
+  { title: "Safe Sources & Zero Hunger", description: "Solutions that strengthen security by rethinking how we grow, manage, and sustain resources", icon: "⟠" },
+  { title: "Safe Sources & Zero Hunger", description: "Solutions that strengthen security by rethinking how we grow, manage, and sustain resources", icon: "⟠" }
 ];
 
 const globalStyles = `
+  body {
+    overflow-x: hidden !important;
+  }
   .perspective-1000 {
     perspective: 1000px;
   }
@@ -24,8 +31,20 @@ const globalStyles = `
 
 function TrackCard({ track, index }: { track: any; index: number }) {
   const [isHovered, setIsHovered] = useState(false);
+  // Default to true (mobile-first) to prevent huge desktop offsets from rendering on mobile devices before React hydrates
+  const [isMobile, setIsMobile] = useState(true); 
   const x = useMotionValue(0);
   const y = useMotionValue(0);
+
+  useEffect(() => {
+    // Set initial value immediately on mount
+    setIsMobile(window.innerWidth < 768);
+    
+    // Update on resize
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener('resize', handleResize, { passive: true });
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const mouseXSpring = useSpring(x, { stiffness: 150, damping: 20 });
   const mouseYSpring = useSpring(y, { stiffness: 150, damping: 20 });
@@ -50,13 +69,28 @@ function TrackCard({ track, index }: { track: any; index: number }) {
     setIsHovered(false);
   };
 
+  // Alternating entry animation: evens from left, odds from right
+  const isLeft = index % 2 === 0;
+  const rowIndex = Math.floor(index / 2);
+  
+  // Minimal slide distance for mobile to prevent horizontal scrolling/disconnect
+  const offset = isMobile ? 15 : 150;
+  const initialX = isLeft ? -offset : offset;
+
+  // Stagger effect for desktop rows: Left card enters immediately, Right card enters slightly later.
+  // We also add a cascading row delay for the first 3 rows to prevent the "group flash" if a user's large screen fits multiple rows at once.
+  const colDelay = isLeft ? 0 : 0.25;
+  const rowDelay = isMobile ? 0 : (rowIndex < 3 ? rowIndex * 0.3 : 0);
+  const animDelay = isMobile ? 0 : colDelay + rowDelay;
+
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30, scale: 0.96 }}
-      whileInView={{ opacity: 1, y: 0, scale: 1 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6, delay: index * 0.1, ease: "easeOut" }}
-      className="perspective-1000 w-full h-full"
+      initial={{ opacity: 0, y: 40, x: initialX, scale: 0.95 }}
+      whileInView={{ opacity: 1, y: 0, x: 0, scale: 1 }}
+      viewport={{ once: true, margin: "-5%" }}
+      transition={{ duration: 1.2, delay: animDelay, ease: [0.16, 1, 0.3, 1] }}
+      className="perspective-1000 w-full h-full will-change-transform"
+      style={{ willChange: "transform, opacity" }}
     >
       <motion.div
         style={{ rotateX, rotateY }}
@@ -68,7 +102,7 @@ function TrackCard({ track, index }: { track: any; index: number }) {
         <div className="absolute inset-0 bg-[#0284c7]/0 group-hover:bg-[#0284c7]/10 blur-xl transition-colors duration-500 rounded-lg pointer-events-none" />
 
         <div 
-          className="preserve-3d relative flex flex-col h-full w-full bg-[#01020a]/90 backdrop-blur-xl border border-slate-700/40 group-hover:border-[#0284c7]/50 transition-colors duration-500 overflow-hidden p-8 z-10"
+          className="preserve-3d relative flex flex-col h-full w-full bg-[#01020a]/90 backdrop-blur-md border border-slate-700/40 group-hover:border-[#0284c7]/50 transition-colors duration-500 overflow-hidden p-8 z-10"
           style={{
             clipPath: "polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px)",
           }}
@@ -109,147 +143,110 @@ function TrackCard({ track, index }: { track: any; index: number }) {
 }
 
 export default function AboutAndTracksSection() {
-  const targetRef = useRef<HTMLDivElement>(null);
-  
-  const { scrollYProgress } = useScroll({
-    target: targetRef,
-    offset: ["start start", "end end"]
-  });
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!targetRef.current) return;
-      const rect = targetRef.current.getBoundingClientRect();
-      const vh = window.innerHeight;
-      
-      // Strict viewport occupancy check to enable native snapping only when trapped inside
-      if (rect.top <= 5 && rect.bottom >= vh - 5) {
-        document.documentElement.style.scrollSnapType = 'y mandatory';
-      } else {
-        document.documentElement.style.scrollSnapType = 'none';
-      }
-    };
-    
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll();
-    
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      document.documentElement.style.scrollSnapType = 'none';
-    };
-  }, []);
-
-  const x = useTransform(scrollYProgress, [0, 1], ["0%", "-50%"]);
-  const robotX = useTransform(scrollYProgress, [0, 1], ["20%", "-20%"]);
-
   return (
     <>
       <style dangerouslySetInnerHTML={{ __html: globalStyles }} />
-      <motion.section ref={targetRef} id="about" className="relative h-[200vh] bg-[#010005]">
+      <div id="about" className="relative bg-[#010005]">
         
-        {/* Native CSS Snap Points */}
-        <div className="absolute top-[-100vh] w-full h-[1px] snap-start pointer-events-none" />
-        <div className="absolute top-0 w-full h-[1px] snap-start pointer-events-none" />
-        <div className="absolute top-[100vh] w-full h-[1px] snap-start pointer-events-none" />
-        <div className="absolute bottom-0 w-full h-[1px] snap-start pointer-events-none" />
-        <div className="absolute bottom-[-100vh] w-full h-[1px] snap-start pointer-events-none" />
-
-        <div className="sticky top-0 h-screen w-full overflow-hidden flex items-center">
-          
-          <motion.div 
-            className="absolute inset-0 flex justify-center items-end pointer-events-none z-0"
-            style={{ x: robotX }}
-          >
-            <div className="relative w-[120%] md:w-[90%] lg:w-[75%] h-[95vh]">
-              <Image
-                src={page2Img}
-                alt="Robot Background"
-                fill
-                className="object-contain object-bottom opacity-[0.85]"
-                priority
-              />
-            </div>
-          </motion.div>
-
-          <motion.div 
-            style={{ x }} 
-            className="relative z-10 flex w-[200vw] h-full"
-          >
-
-          <div id="tracks" className="w-screen h-full flex items-center justify-baseline px-6 md:px-12 xl:px-24">
-              <div className="w-full md:w-[55%] flex flex-col gap-10">
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.8, ease: "easeOut" }}
-                  className="flex flex-col md:items-start gap-4"
-                >
-                  <div className="flex items-center gap-4 text-[#0284c7] font-medium tracking-[0.15em] text-sm uppercase">
-                    <span className="w-8 h-[1px] bg-[#0284c7]" />
-                    <span>Domains</span>
-                  </div>
-                  <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight font-[family-name:var(--font-blanka)]">
-                    TRACKS
-                  </h2>
-                </motion.div>
-                
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
-                  {tracks.map((track, i) => (
-                    <TrackCard key={i} track={track} index={i} />
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            <div className="w-screen h-full flex items-center justify-end px-6 md:px-12 xl:px-24">
-              <div className="w-full md:w-1/2 flex flex-col gap-10">
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.8, ease: "easeOut" }}
-                  className="flex flex-col md:items-end gap-4"
-                >
-                  <div className="flex items-center gap-4 text-[#0284c7] font-medium tracking-[0.15em] text-sm uppercase">
-                    <span className="w-8 h-[1px] bg-[#0284c7]" />
-                    <span>The Origin</span>
-                  </div>
-                  <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight font-[family-name:var(--font-blanka)]">
-                    ABOUT US
-                  </h2>
-                </motion.div>
-                
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-                  className="relative p-8 md:p-10 bg-[#01020a]/90 backdrop-blur-xl border border-slate-700/40 shadow-[0_0_30px_rgba(2,132,199,0.05)] overflow-hidden"
-                  style={{
-                    clipPath: "polygon(30px 0, 100% 0, 100% calc(100% - 30px), calc(100% - 30px) 100%, 0 100%, 0 30px)",
-                  }}
-                >
-                  <div className="absolute inset-0 opacity-[0.15] bg-[linear-gradient(rgba(2,132,199,0.2)_1px,transparent_1px),linear-gradient(90deg,rgba(2,132,199,0.2)_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none" />
-                  
-                  <div className="absolute top-0 right-0 w-4 h-4 border-t border-r border-[#0284c7]/50" />
-                  <div className="absolute bottom-0 left-0 w-4 h-4 border-b border-l border-[#0284c7]/50" />
-                  
-                  <p className="relative z-10 text-lg text-slate-300/90 font-light leading-relaxed md:leading-loose text-justify font-sans">
-                    <span className="text-white font-medium">›.hack();_ ‘25</span> is the 6th edition of IEEE MACE SB's flagship event, a dynamic 36-hour premier hackathon where creative minds converge to craft innovative solutions to critical social challenges. 
-                    <br /><br />
-                    Notably, <span className="text-[#0284c7] font-medium">›.hack();_</span> has earned international acclaim by securing the <span className="text-white font-medium">IEEE Darrel Chong Student Activity Award</span>. 
-                    In addition to the intense coding sessions, the event features inspiring keynote talks and valuable networking opportunities, uniting technology enthusiasts to shape the future.
-                  </p>
-                </motion.div>
-              </div>
-            </div>
-
-            
-
-          </motion.div>
+        {/* Sticky Centered Robot Background */}
+        {/* Removed width constraints so object-contain can scale to true 100vh height */}
+        <div className="sticky top-0 h-screen w-full flex items-center justify-center pointer-events-none z-0 overflow-hidden">
+          <div className="relative w-full h-full opacity-30 md:opacity-80">
+            <Image
+              src={page2Img}
+              alt="Robot Background"
+              fill
+              className="object-contain object-center"
+              priority
+            />
+          </div>
         </div>
-      </motion.section>
+
+        {/* Foreground Vertically Scrolling Content */}
+        <div className="relative z-10 -mt-[100vh] flex flex-col w-full">
+          
+          {/* TRACKS SECTION */}
+          <div className="min-h-screen w-full flex flex-col items-center px-4 md:px-12 xl:px-16 py-24">
+            
+            {/* Sticky Title Wrapper */}
+            <div className="sm:sticky sm:top-10 md:top-24 z-20 w-full flex justify-center mb-10 md:mb-6 lg:mb-0 pointer-events-none">
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+                className="flex flex-col items-center gap-4 shadow-2xl pointer-events-auto"
+              >
+                <div className="flex items-center gap-4 text-[#0284c7] font-medium tracking-[0.15em] text-sm uppercase">
+                  <span className="w-8 h-[1px] bg-[#0284c7]" />
+                  <span>Domains</span>
+                  <span className="w-8 h-[1px] bg-[#0284c7]" />
+                </div>
+                <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight font-blanka">
+                  TRACKS
+                </h2>
+              </motion.div>
+            </div>
+            
+            {/* Split Grid Layout: 
+                Drastically increased gap-y (vertical spacing) to ensure users have to scroll to read each row.
+                This prevents 6 cards from crowding the screen at once on large monitors.
+            */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-y-12 md:gap-y-24 lg:gap-y-32 xl:gap-y-40 md:gap-x-[25vw] lg:gap-x-[30vw] xl:gap-x-[35vw] w-full max-w-[1800px] mt-0 lg:-mt-12 xl:-mt-16">
+              {tracks.map((track, i) => (
+                <TrackCard key={i} track={track} index={i} />
+              ))}
+            </div>
+
+          </div>
+
+          {/* ABOUT US SECTION */}
+          <div className="min-h-screen w-full flex flex-col justify-center items-center px-6 md:px-12 xl:px-24 py-24 md:py-32">
+            <div className="w-full max-w-4xl flex flex-col gap-10">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                className="flex flex-col items-center gap-4"
+              >
+                <div className="flex items-center gap-4 text-[#0284c7] font-medium tracking-[0.15em] text-sm uppercase">
+                  <span className="w-8 h-[1px] bg-[#0284c7]" />
+                  <span>The Origin</span>
+                  <span className="w-8 h-[1px] bg-[#0284c7]" />
+                </div>
+                <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight font-blanka">
+                  ABOUT US
+                </h2>
+              </motion.div>
+              
+              <motion.div
+                initial={{ opacity: 0, y: 20, scale: 0.95 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
+                className="relative p-8 md:p-12 bg-[#01020a]/90 backdrop-blur-xl border border-slate-700/40 shadow-[0_0_30px_rgba(2,132,199,0.05)] overflow-hidden"
+                style={{
+                  clipPath: "polygon(40px 0, 100% 0, 100% calc(100% - 40px), calc(100% - 40px) 100%, 0 100%, 0 40px)",
+                }}
+              >
+                <div className="absolute inset-0 opacity-[0.15] bg-[linear-gradient(rgba(2,132,199,0.2)_1px,transparent_1px),linear-gradient(90deg,rgba(2,132,199,0.2)_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none" />
+                
+                <div className="absolute top-0 right-0 w-6 h-6 border-t border-r border-[#0284c7]/50" />
+                <div className="absolute bottom-0 left-0 w-6 h-6 border-b border-l border-[#0284c7]/50" />
+                
+                <p className="relative z-10 text-lg md:text-xl text-slate-300/90 font-light leading-relaxed md:leading-loose text-center font-sans">
+                  <span className="text-white font-medium">›.hack();_ ‘25</span> is the 6th edition of IEEE MACE SB's flagship event, a dynamic 36-hour premier hackathon where creative minds converge to craft innovative solutions to critical social challenges. 
+                  <br /><br />
+                  Notably, <span className="text-[#0284c7] font-medium">›.hack();_</span> has earned international acclaim by securing the <span className="text-white font-medium">IEEE Darrel Chong Student Activity Award</span>. 
+                  In addition to the intense coding sessions, the event features inspiring keynote talks and valuable networking opportunities, uniting technology enthusiasts to shape the future.
+                </p>
+              </motion.div>
+            </div>
+          </div>
+
+        </div>
+      </div>
     </>
   );
 }

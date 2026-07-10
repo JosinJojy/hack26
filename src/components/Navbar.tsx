@@ -48,7 +48,7 @@ export default function Navbar() {
           <a
             key={link.name}
             href={link.href}
-            className="group relative text-white font-medium font-[family-name:var(--font-blanka)] tracking-wide text-sm transition-all duration-300 hover:text-[#38BDF8]"
+            className="group relative text-white font-medium font-blanka tracking-wide text-sm transition-all duration-300 hover:text-[#38BDF8]"
           >
             {link.name}
             <span className="absolute -bottom-2 left-1/2 w-0 h-[2px] bg-[#38BDF8] rounded-full transition-all duration-300 group-hover:w-full group-hover:left-0 shadow-[0_0_8px_rgba(56,189,248,0.8)] opacity-0 group-hover:opacity-100" />
@@ -108,7 +108,7 @@ export default function Navbar() {
                   key={link.name}
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className="text-white font-medium font-[family-name:var(--font-blanka)] text-lg tracking-wider hover:text-[#38BDF8] transition-colors duration-300"
+                  className="text-white font-medium font-blanka text-lg tracking-wider hover:text-[#38BDF8] transition-colors duration-300"
                 >
                   {link.name}
                 </a>

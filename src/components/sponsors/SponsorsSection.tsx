@@ -43,7 +43,7 @@ export default function SponsorsSection() {
             <span>Trusted by Industry Leaders</span>
             <span className="w-12 h-[1px] bg-[#0ea5e9]/40" />
           </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight font-[family-name:var(--font-blanka)] uppercase">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight font-blanka uppercase">
             Previous Sponsors
           </h2>
           <p className="text-slate-400 text-sm lg:text-base leading-relaxed max-w-2xl mt-2">

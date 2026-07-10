@@ -44,7 +44,7 @@ export default function CountdownTimer({ targetDate }: CountdownTimerProps) {
   if (!isMounted) {
     return (
       <div className="mt-8 flex flex-col items-center md:items-start gap-1">
-        <div className="flex items-center font-[family-name:var(--font-blanka)] text-4xl sm:text-5xl lg:text-6xl text-white/30 tracking-widest">
+        <div className="flex items-center font-blanka text-4xl sm:text-5xl lg:text-6xl text-white/30 tracking-widest">
           00<span className="mx-2 text-white/10">:</span>00<span className="mx-2 text-white/10">:</span>00<span className="mx-2 text-white/10">:</span>00
         </div>
         <div className="flex w-full justify-between px-2 text-[10px] sm:text-xs text-white/20 uppercase tracking-[0.2em] font-medium">
@@ -64,7 +64,7 @@ export default function CountdownTimer({ targetDate }: CountdownTimerProps) {
       transition={{ duration: 0.8, ease: "easeOut" }}
       className="mt-8 flex flex-col items-center md:items-start gap-2"
     >
-      <div className="flex items-center font-[family-name:var(--font-blanka)] text-4xl sm:text-5xl lg:text-6xl font-bold text-white tracking-widest">
+      <div className="flex items-center font-blanka text-4xl sm:text-5xl lg:text-6xl font-bold text-white tracking-widest">
         <div className="flex flex-col items-center">
           <span>{timeLeft.d}</span>
           <span className="text-[10px] sm:text-xs text-[#38BDF8]/70 uppercase tracking-[0.2em] font-sans font-medium mt-1">Days</span>

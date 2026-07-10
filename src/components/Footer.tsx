@@ -39,7 +39,7 @@ export default function Footer() {
             <span>Any Doubts</span>
             <span className="w-12 md:w-32 h-[1px] bg-[#0ea5e9]/40" />
           </div>
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight font-[family-name:var(--font-blanka)]">
+          <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight font-blanka">
             CONTACT US
           </h2>
         </div>
@@ -159,7 +159,7 @@ export default function Footer() {
 
       {/* Giant Footer Text Watermark */}
       <div className="relative w-full flex justify-center items-end mt-auto pointer-events-none z-10 pt-16">
-        <h1 className="text-[15vw] leading-[0.75] font-bold text-[#0ea5e9]/[0.08] select-none font-[family-name:var(--font-blanka)] whitespace-nowrap tracking-tighter">
+        <h1 className="text-[15vw] leading-[0.75] font-bold text-[#0ea5e9]/[0.08] select-none font-blanka whitespace-nowrap tracking-tighter">
           {">.hack();_"}
         </h1>
       </div>

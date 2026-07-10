@@ -96,7 +96,7 @@ export default function HackathonTimeline() {
           <span>Mission Progress</span>
           <span className="w-12 h-[1px] bg-[#0ea5e9]/40" />
         </div>
-        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight font-[family-name:var(--font-blanka)]">
+        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight font-blanka">
           TIMELINE
         </h2>
       </div>

@@ -170,11 +170,11 @@ export default function HeroSection() {
           initial={{ opacity: 0.01, x: "var(--start-x)", y: "var(--start-y)" }}
           animate={{ opacity: 1, x: "0px", y: "0px" }}
           transition={{ duration: 2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-          className="flex flex-col gap-2 max-w-2xl items-center text-center md:items-start md:text-left mx-auto md:mx-0 w-full [--start-x:0px] [--start-y:40px] md:[--start-x:-40px] md:[--start-y:0px]"
+          className="flex flex-col gap-2 max-w-2xl items-center text-center md:items-start md:text-left mx-auto md:mx-0 w-full px-6 sm:px-8 md:px-0 [--start-x:0px] [--start-y:40px] md:[--start-x:-40px] md:[--start-y:0px]"
         >
 
           {/* Title */}
-          <h1 className="text-[5rem] sm:text-[6.5rem] md:text-8xl lg:text-9xl font-bold text-white tracking-tighter leading-[0.95] drop-shadow-lg font-[family-name:var(--font-blanka)]">
+          <h1 className="text-[5rem] sm:text-[6.5rem] md:text-8xl lg:text-9xl font-bold text-white tracking-tighter leading-[0.95] drop-shadow-lg font-blanka">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-100 to-[#38BDF8]">
               {">.hack26"}
             </span>
