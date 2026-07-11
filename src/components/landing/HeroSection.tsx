@@ -240,7 +240,10 @@ export default function HeroSection() {
 
           {/* CTAs - Devfolio Native Button styling */}
           <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4 mt-8 w-full sm:w-auto px-4 sm:px-0">
-            <motion.button
+            <motion.a
+              href="https://dothack26.devfolio.co/"
+              target="_blank"
+              rel="noopener noreferrer"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               className="flex items-center justify-center gap-3 px-6 py-3.5 bg-[#3770FF] hover:bg-[#2B5DE5] text-white rounded-md font-semibold text-[15px] sm:text-[17px] transition-colors shadow-lg w-[85vw] max-w-[280px] sm:w-auto sm:min-w-[300px]"
@@ -250,7 +253,7 @@ export default function HeroSection() {
                 <path d="M115.46 56.46a55.43 55.43 0 0 0-50.85-55.11S28.12-6 16 1.24v55.63c0 15.54 11.23 26.68 26.68 26.68h72.78z"/>
               </svg>
               Apply with Devfolio
-            </motion.button>
+            </motion.a>
           </div>
         </motion.div>
       </motion.div>

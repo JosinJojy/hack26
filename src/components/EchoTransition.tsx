@@ -180,7 +180,7 @@ export default function EchoTransition() {
               className="absolute flex flex-col items-center"
             >
               <div className="text-3xl md:text-5xl font-bold tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-100 to-[#38BDF8] font-blanka">
-                IEEE SB MACE
+                IEEE MACE SB
               </div>
               <div className="text-white/60 font-mono text-[10px] md:text-xs tracking-[0.3em] uppercase mt-2">
                 presents
