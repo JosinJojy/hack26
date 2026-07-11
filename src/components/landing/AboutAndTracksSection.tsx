@@ -13,8 +13,8 @@ const tracks = [
   { title: "Safe Sources & Zero Hunger", description: "Solutions that strengthen security by rethinking how we grow, manage, and sustain resources", icon: "⟠" },
   { title: "Care Beyound Labels", description: "Innovations that address often-overlooked dimentions of health and well-being", icon: "⟠" },
   { title: "Industry 4.0: Automation for good", description: "Smarter ecosystems where productivity, sustainability, and safety go hand in hand", icon: "⟠" },
-  { title: "Safe Sources & Zero Hunger", description: "Solutions that strengthen security by rethinking how we grow, manage, and sustain resources", icon: "⟠" },
-  { title: "Safe Sources & Zero Hunger", description: "Solutions that strengthen security by rethinking how we grow, manage, and sustain resources", icon: "⟠" }
+  { title: "Inclusive Innovation : Access without limits", description: "An inclusive future enabled by equal access, participation, and opportunity", icon: "⟠" },
+  { title: "Living with Uncertainties, Building with Resilience", description: "Solutions that help communities anticipate, withstand, & recover from natural and human-made calamities", icon: "⟠" }
 ];
 
 const globalStyles = `

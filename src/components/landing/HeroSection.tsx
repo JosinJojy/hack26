@@ -179,7 +179,7 @@ export default function HeroSection() {
 
         {/* Layer 1 - Foreground Bottom Strip (Anchored below bottom to hide parallax gap) */}
         <motion.div
-          className="absolute -bottom-[5vh] left-0 w-full sm:w-[65%] h-[35vh] md:h-[40vh] lg:h-[45vh] z-30"
+          className="absolute -bottom-[5vh] left-0 w-full sm:w-[65%] h-[35vh] md:h-[40vh] lg:h-[45vh] z-50"
           style={{
             y: layer1Y,
             x: mousePos.x * 1.5,
