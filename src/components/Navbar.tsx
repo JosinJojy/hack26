@@ -4,11 +4,11 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
-  { name: "Home", href: "#" },
-  { name: "About", href: "#" },
-  { name: "Tracks", href: "#" },
-  { name: "Timeline", href: "#" },
-  { name: "Sponsors", href: "#" },
+  { name: "Home", href: "#home" },
+  { name: "About", href: "#about" },
+  { name: "Tracks", href: "#tracks" },
+  { name: "Timeline", href: "#timeline" },
+  { name: "Sponsors", href: "#sponsors" },
 ];
 
 export default function Navbar() {
@@ -28,7 +28,7 @@ export default function Navbar() {
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-      className="fixed top-6 left-0 right-0 z-50 flex justify-center px-4 pointer-events-none"
+      className="fixed top-6 left-0 right-0 z-[100] flex justify-center px-4 pointer-events-none"
     >
       {/* Desktop Navigation */}
       <nav
@@ -48,6 +48,10 @@ export default function Navbar() {
           <a
             key={link.name}
             href={link.href}
+            onClick={(e) => {
+              e.preventDefault();
+              document.querySelector(link.href)?.scrollIntoView({ behavior: 'smooth' });
+            }}
             className="group relative text-white font-medium font-blanka tracking-wide text-sm transition-all duration-300 hover:text-[#38BDF8]"
           >
             {link.name}
@@ -107,7 +111,11 @@ export default function Navbar() {
                 <a
                   key={link.name}
                   href={link.href}
-                  onClick={() => setIsOpen(false)}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setIsOpen(false);
+                    document.querySelector(link.href)?.scrollIntoView({ behavior: 'smooth' });
+                  }}
                   className="text-white font-medium font-blanka text-lg tracking-wider hover:text-[#38BDF8] transition-colors duration-300"
                 >
                   {link.name}

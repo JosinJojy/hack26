@@ -78,7 +78,7 @@ export default function HackathonTimeline() {
   const progressHeight = isExpanded ? `${(activeIndex + 1) * 20}%` : "0%";
 
   return (
-    <section ref={sectionRef} className="relative w-full bg-[#010005] py-24 lg:py-40 overflow-hidden font-sans min-h-screen">
+    <section id="timeline" ref={sectionRef} className="relative w-full bg-[#010005] py-24 lg:py-40 overflow-hidden font-sans min-h-screen">
       
       <style dangerouslySetInnerHTML={{__html: `
         .perspective-1000 { perspective: 1000px; }

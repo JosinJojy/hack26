@@ -107,16 +107,17 @@ export default function HeroSection() {
 
   return (
     <section
+      id="home"
       ref={containerRef}
       className="relative w-full h-[100dvh] overflow-hidden bg-[#010005]"
     >
       {/* Logos Header */}
-      <div className="absolute top-0 left-0 w-full p-6 md:p-8 flex flex-row gap-8 md:gap-0 justify-start md:justify-between items-start z-50 pointer-events-auto">
-        <div className="text-lg md:text-xl font-bold text-white tracking-[0.15em] flex flex-col items-start cursor-pointer hover:text-[#0284c7] transition-colors font-mono">
+      <div className="absolute top-0 left-0 w-full p-6 md:p-8 flex flex-row gap-8 md:gap-0 justify-start md:justify-between items-start z-50 pointer-events-none">
+        <div className="text-lg md:text-xl font-bold text-white tracking-[0.15em] flex flex-col items-start cursor-pointer hover:text-[#0284c7] transition-colors font-mono pointer-events-auto">
           <span>IEEE<span className="text-[#0284c7]">.</span></span>
           <span className="text-[8px] font-mono text-slate-400/80 mt-1 uppercase tracking-[0.2em]">Logo Placeholder</span>
         </div>
-        <div className="text-base md:text-lg font-bold text-slate-200 tracking-[0.1em] flex flex-col items-start md:items-end cursor-pointer hover:text-[#0284c7] transition-colors font-mono">
+        <div className="text-base md:text-lg font-bold text-slate-200 tracking-[0.1em] flex flex-col items-start md:items-end cursor-pointer hover:text-[#0284c7] transition-colors font-mono pointer-events-auto">
           <span>IEEE MACE SB</span>
           <span className="text-[8px] font-mono text-slate-400/80 mt-1 uppercase tracking-[0.2em]">Logo Placeholder</span>
         </div>

@@ -166,7 +166,7 @@ export default function AboutAndTracksSection() {
         <div className="relative z-10 -mt-[100vh] flex flex-col w-full">
           
           {/* TRACKS SECTION */}
-          <div className="min-h-screen w-full flex flex-col items-center px-4 md:px-12 xl:px-16 py-24">
+          <div id="tracks" className="min-h-screen w-full flex flex-col items-center px-4 md:px-12 xl:px-16 py-24">
             
             {/* Sticky Title Wrapper */}
             <div className="sm:sticky sm:top-10 md:top-24 z-20 w-full flex justify-center mb-10 md:mb-6 lg:mb-0 pointer-events-none">

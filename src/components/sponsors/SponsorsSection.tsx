@@ -21,6 +21,7 @@ export default function SponsorsSection() {
 
   return (
     <section
+      id="sponsors"
       ref={sectionRef}
       className="relative w-full bg-[#010005] py-24 lg:py-40 overflow-hidden font-sans min-h-[600px]"
     >
