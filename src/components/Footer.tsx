@@ -7,7 +7,13 @@ const Instagram = (props: any) => <svg {...props} viewBox="0 0 24 24" fill="none
 const Twitter = (props: any) => <svg {...props} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4l11.733 16h4.267l-11.733 -16z"/><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"/></svg>;
 const Linkedin = (props: any) => <svg {...props} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>;
 const Globe = (props: any) => <svg {...props} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" x2="22" y1="12" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>;
-const MessageCircle = (props: any) => <svg {...props} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>;
+const Whatsapp = (props: any) => (
+  <svg {...props} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+    <path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" />
+    <path d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1" />
+  </svg>
+);
 
 export default function Footer() {
   return (
@@ -47,8 +53,8 @@ export default function Footer() {
         {/* Dynamic Coordinators Grid */}
         <div className="flex flex-col md:flex-row gap-8 w-full justify-center mb-20">
           {[
-            { name: "Sooraj N S", role: "Team Lead", phone: "+91 83048 11633", id: "01" },
-            { name: "Kalyani B", role: "Team Lead", phone: "+91 70255 92234", id: "02"}
+            { name: "Sooraj N S", role: "Team Lead", phone: "+91 83048 11633", id: "01", image: "/TeamLeads/Sooraj-N-S.webp", linkedin: "https://www.linkedin.com/in/sooraj-n-s1110" },
+            { name: "Kalyani B", role: "Team Lead", phone: "+91 70255 92234", id: "02", image: "/TeamLeads/Kalyani-B.webp", linkedin: "https://www.linkedin.com/in/kalyani324" }
           ].map((person, i) => (
             <motion.div 
               key={person.name}
@@ -71,11 +77,31 @@ export default function Footer() {
               <div className="absolute bottom-0 right-0 w-8 h-8 border-b-[2px] border-r-[2px] border-[#0ea5e9]/30 group-hover:border-[#0ea5e9] group-hover:shadow-[5px_5px_15px_rgba(14,165,233,0.3)] transition-all duration-500 z-10" />
 
               <div className="relative z-20 flex flex-col h-full justify-between gap-6">
-                {/* Top Row: ID & Status */}
-                <div className="flex justify-between items-start w-full">
-                  <div className="flex flex-col">
-                    <span className="text-[#0ea5e9] font-mono text-xs tracking-widest uppercase">{person.role}</span>
-                    <h3 className="text-white font-bold font-mono text-2xl lg:text-3xl tracking-wide uppercase mt-1">{person.name}</h3>
+                {/* Top Row: Image & Info */}
+                <div className="flex flex-col w-full gap-6">
+                  <div className="w-full aspect-[3/4] shrink-0 rounded-sm overflow-hidden border border-[#0ea5e9]/30 group-hover:border-[#0ea5e9] transition-colors duration-500 relative bg-[#01020a]">
+                    <img 
+                      src={person.image} 
+                      alt={person.name} 
+                      className="w-full h-full object-cover transition-all duration-500 object-top" 
+                    />
+                    <div className="absolute inset-0 bg-[#0ea5e9]/10 group-hover:bg-transparent transition-colors duration-500 mix-blend-overlay pointer-events-none" />
+                  </div>
+                  
+                  <div className="flex flex-col w-full">
+                    <span className="text-[#0ea5e9] font-mono text-sm tracking-widest uppercase">{person.role}</span>
+                    <div className="flex justify-between items-center w-full mt-1">
+                      <h3 className="text-white font-bold font-mono text-3xl lg:text-4xl tracking-wide uppercase">{person.name}</h3>
+                      <a 
+                        href={person.linkedin} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="p-2 bg-[#01020a]/80 border border-slate-800 rounded-sm hover:border-[#0ea5e9] hover:bg-[#0ea5e9]/10 transition-all duration-300 shadow-[0_0_10px_rgba(0,0,0,0.5)] hover:shadow-[0_0_15px_rgba(14,165,233,0.3)] z-30"
+                        title="LinkedIn Profile"
+                      >
+                        <Linkedin className="w-5 h-5 md:w-6 md:h-6 text-slate-400 group-hover:text-[#0ea5e9] transition-colors" />
+                      </a>
+                    </div>
                   </div>
                 </div>
 
@@ -108,18 +134,20 @@ export default function Footer() {
             className="flex flex-wrap justify-center gap-6"
           >
             {[
-              { icon: Instagram, label: "INSTA", href: "#" },
-              { icon: Twitter, label: "X_COM", href: "#" },
-              { icon: Linkedin, label: "LINKEDIN", href: "#" },
-              { icon: Globe, label: "WEB_NET", href: "#" },
-              { icon: MessageCircle, label: "WHATSAPP", href: "#" },
+              { icon: Instagram, label: "INSTA", href: "https://www.instagram.com/ieeemace/" },
+              { icon: Twitter, label: "X_COM", href: "https://x.com/ieeemace" },
+              { icon: Linkedin, label: "LINKEDIN", href: "https://www.linkedin.com/company/ieeemace/" },
+              { icon: Globe, label: "WEB_NET", href: "https://www.ieeemace.org/" },
+              { icon: Whatsapp, label: "WHATSAPP", href: "https://chat.whatsapp.com/GqOOJmxw6ThLcnUGwXhCxD" },
             ].map((social) => {
               const Icon = social.icon;
               return (
                 <a 
                   key={social.label}
                   href={social.href}
-                  className="group relative flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 bg-[#01020a]/80 border border-slate-800 backdrop-blur-sm hover:border-[#0ea5e9] hover:bg-[#0ea5e9]/10 transition-all duration-500 shadow-none hover:shadow-[0_0_15px_0_rgba(14,165,233,0.3)] hover:-translate-y-1"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group relative flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 bg-[#01020a]/80 border border-slate-800 backdrop-blur-sm hover:border-[#0ea5e9] hover:bg-[#0ea5e9]/10 transition-all duration-500 shadow-none hover:shadow-[0_0_15px_0_rgba(14,165,233,0.3)] hover:-translate-y-1 z-30"
                   aria-label={social.label}
                 >
                   {/* Subtle inner corner brackets on hover */}
@@ -138,14 +166,23 @@ export default function Footer() {
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.5 }}
             viewport={{ once: true }}
-            className="mt-12 flex w-full max-w-2xl justify-between items-end border-b border-slate-800/80 pb-4 px-4 md:px-0"
+            className="mt-12 flex w-full max-w-2xl justify-between items-end border-b border-slate-800/80 pb-4 px-4 md:px-0 relative z-30"
           >
             <div className="flex flex-col items-start text-left">
               <div className="flex items-center gap-2 mb-2">
                 <div className="w-1.5 h-1.5 bg-[#0ea5e9]" />
                 <span className="text-[#0ea5e9] font-mono text-[10px] tracking-[0.2em] uppercase">Target Coordinates</span>
               </div>
-              <h4 className="text-white font-sans text-lg md:text-xl font-medium tracking-tight">MA College Indoor Stadium</h4>
+              <a 
+                href="https://maps.app.goo.gl/ns8zKGjnW3L3Aq1ZA" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="group flex items-center gap-2 text-white font-sans text-lg md:text-xl font-medium tracking-tight hover:text-[#0ea5e9] transition-colors duration-300"
+                title="View on Google Maps"
+              >
+                <MapPin className="w-5 h-5 text-[#0ea5e9]/70 group-hover:text-[#0ea5e9] transition-colors duration-300" />
+                <span>MA College Indoor Stadium</span>
+              </a>
               <p className="text-slate-500 font-mono text-xs md:text-sm uppercase tracking-widest mt-1">Kothamangalam</p>
             </div>
             
