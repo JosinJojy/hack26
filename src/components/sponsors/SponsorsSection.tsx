@@ -95,7 +95,7 @@ export default function SponsorsSection() {
                 <div className="relative z-20 w-[75%] h-[55%] flex items-center justify-center mx-auto">
                   <Image
                     src={sponsor.logo}
-                    alt={sponsor.alt}
+                    alt={`${sponsor.alt} - IEEE SB MACE .hack26 Sponsor`}
                     fill
                     className="object-contain opacity-80 group-hover:opacity-100 transition-all duration-300 group-hover:scale-[1.03]"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"

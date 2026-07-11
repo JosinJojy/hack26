@@ -142,7 +142,7 @@ export default function HeroSection() {
         >
           <Image
             src={layer3Img}
-            alt=""
+            alt="IEEE SB MACE .hack26 hackathon background layer 3"
             fill
             className="object-cover object-right"
             priority
@@ -168,7 +168,7 @@ export default function HeroSection() {
           >
             <Image
               src={layer2Img}
-              alt=""
+              alt="IEEE SB MACE .hack26 hackathon background layer 2"
               fill
               className="object-cover object-center md:object-bottom"
               priority
@@ -190,7 +190,7 @@ export default function HeroSection() {
         >
           <Image
             src={layer1Img}
-            alt=""
+            alt="IEEE SB MACE .hack26 hackathon background layer 1"
             fill
             className="object-cover object-right"
             priority
@@ -224,7 +224,8 @@ export default function HeroSection() {
         >
 
           {/* Title */}
-          <h1 className="text-[13vw] min-[400px]:text-[5rem] sm:text-[6.5rem] md:text-8xl lg:text-9xl font-bold text-white tracking-tighter leading-[0.95] drop-shadow-lg font-blanka">
+          <h1 className="text-[13vw] min-[400px]:text-[5rem] sm:text-[6.5rem] md:text-8xl lg:text-9xl font-bold text-white tracking-tighter leading-[0.95] drop-shadow-lg font-blanka flex flex-col">
+            <span className="sr-only">IEEE SB MACE presents</span>
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-100 to-[#38BDF8]">
               {">.hack26"}
             </span>

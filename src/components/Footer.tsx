@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { MapPin } from "lucide-react";
+import Image from "next/image";
 
 const Instagram = (props: any) => <svg {...props} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>;
 const Twitter = (props: any) => <svg {...props} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4l11.733 16h4.267l-11.733 -16z"/><path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"/></svg>;
@@ -80,10 +81,11 @@ export default function Footer() {
                 {/* Top Row: Image & Info */}
                 <div className="flex flex-col w-full gap-6">
                   <div className="w-full aspect-[3/4] shrink-0 rounded-sm overflow-hidden border border-[#0ea5e9]/30 group-hover:border-[#0ea5e9] transition-colors duration-500 relative bg-[#01020a]">
-                    <img 
+                    <Image 
                       src={person.image} 
-                      alt={person.name} 
-                      className="w-full h-full object-cover transition-all duration-500 object-top" 
+                      alt={`Portrait of ${person.name}, ${person.role} at IEEE SB MACE .hack26`}
+                      fill
+                      className="object-cover transition-all duration-500 object-top" 
                     />
                     <div className="absolute inset-0 bg-[#0ea5e9]/10 group-hover:bg-transparent transition-colors duration-500 mix-blend-overlay pointer-events-none" />
                   </div>
@@ -196,9 +198,9 @@ export default function Footer() {
 
       {/* Giant Footer Text Watermark */}
       <div className="relative w-full flex justify-center items-end mt-auto pointer-events-none z-10 pt-16">
-        <h1 className="text-[15vw] leading-[0.75] font-bold text-[#0ea5e9]/[0.08] select-none font-blanka whitespace-nowrap tracking-tighter">
+        <div aria-hidden="true" className="text-[15vw] leading-[0.75] font-bold text-[#0ea5e9]/[0.08] select-none font-blanka whitespace-nowrap tracking-tighter">
           {">.hack();_"}
-        </h1>
+        </div>
       </div>
     </footer>
   );
