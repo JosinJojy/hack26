@@ -112,14 +112,24 @@ export default function HeroSection() {
       className="relative w-full h-[100dvh] overflow-hidden bg-[#010005]"
     >
       {/* Logos Header */}
-      <div className="absolute top-0 left-0 w-full p-6 md:p-8 flex flex-row gap-8 md:gap-0 justify-start md:justify-between items-start z-50 pointer-events-none">
-        <div className="text-lg md:text-xl font-bold text-white tracking-[0.15em] flex flex-col items-start cursor-pointer hover:text-[#0284c7] transition-colors font-mono pointer-events-auto">
-          <span>IEEE<span className="text-[#0284c7]">.</span></span>
-          <span className="text-[8px] font-mono text-slate-400/80 mt-1 uppercase tracking-[0.2em]">Logo Placeholder</span>
+      <div className="absolute top-0 left-0 w-full p-6 md:p-8 flex flex-row gap-8 md:gap-0 justify-start md:justify-between items-start z-50 pointer-events-auto">
+        <div className="relative h-10 md:h-12 w-28 md:w-32 cursor-pointer transition-transform hover:scale-105">
+          <Image 
+            src="/logos/IEEE-mace.png" 
+            alt="IEEE MACE SB Logo" 
+            fill 
+            className="object-contain object-left" 
+            priority
+          />
         </div>
-        <div className="text-base md:text-lg font-bold text-slate-200 tracking-[0.1em] flex flex-col items-start md:items-end cursor-pointer hover:text-[#0284c7] transition-colors font-mono pointer-events-auto">
-          <span>IEEE MACE SB</span>
-          <span className="text-[8px] font-mono text-slate-400/80 mt-1 uppercase tracking-[0.2em]">Logo Placeholder</span>
+        <div className="relative h-10 md:h-12 w-24 md:w-24 cursor-pointer transition-transform hover:scale-105">
+          <Image 
+            src="/logos/IEEE.png" 
+            alt="IEEE  Logo" 
+            fill 
+            className="object-contain object-left md:object-right" 
+            priority
+          />
         </div>
       </div>
 
@@ -224,15 +234,18 @@ export default function HeroSection() {
         >
 
           {/* Title */}
-          <h1 className="text-[13vw] min-[400px]:text-[5rem] sm:text-[6.5rem] md:text-8xl lg:text-9xl font-bold text-white tracking-tighter leading-[0.95] drop-shadow-lg font-blanka flex flex-col">
-            <span className="sr-only">IEEE SB MACE presents</span>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-100 to-[#38BDF8]">
-              {">.hack26"}
-            </span>
+          <h1 className="relative w-full shrink-0 h-[12vw] min-[400px]:h-[4.75rem] sm:h-[6.175rem] md:h-[5.7rem] lg:h-[7.6rem]">
+            <Image
+              src="/logos/hack-logo.png"
+              alt=">.hack26"
+              fill
+              className="object-contain object-center md:object-left drop-shadow-lg"
+              priority
+            />
           </h1>
 
           {/* Subtitle */}
-          <p className="text-sm min-[400px]:text-base sm:text-lg md:text-xl text-slate-300/90 font-light leading-relaxed max-w-md mt-2 px-2 min-[400px]:px-4 md:px-0 font-sans">
+          <p className="text-sm sm:text-lg md:text-lg text-slate-300/90 font-light leading-relaxed max-w-md mt-2 px-2 min-[400px]:px-4 md:px-0 font-sans">
             Build bold ideas, ship real prototypes, and compete with the next
             generation of student innovators.
           </p>
