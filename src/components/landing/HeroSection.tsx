@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useEffect, useState } from "react";
-import { motion, useScroll, useTransform, useSpring } from "framer-motion";
+import { motion, useScroll, useTransform, useSpring, useAnimation } from "framer-motion";
 import Image from "next/image";
 import CountdownTimer from "./CountdownTimer";
 
@@ -12,6 +12,51 @@ import layer3Img from "../../../assets/landing/Layer 3.png";
 export default function HeroSection() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [imagesLoaded, setImagesLoaded] = useState(0);
+  const controls = useAnimation();
+  const layerControls = useAnimation();
+
+  useEffect(() => {
+    // Check if images are already cached/loaded fast
+    if (imagesLoaded >= 3) {
+      if (typeof window !== "undefined") {
+        (window as any).__HERO_READY__ = true;
+        window.dispatchEvent(new Event("hero-ready"));
+      }
+    }
+  }, [imagesLoaded]);
+
+  const handleImageLoad = () => {
+    setImagesLoaded((prev) => prev + 1);
+  };
+
+  useEffect(() => {
+    const handleTransitionComplete = () => {
+      controls.start({
+        opacity: 1,
+        x: "0px",
+        y: "0px",
+        transition: { duration: 2, ease: [0.16, 1, 0.3, 1] }
+      });
+      layerControls.start({
+        y: "0%",
+        opacity: 1,
+        transition: { duration: 1.6, ease: "easeOut" }
+      });
+    };
+
+    if (typeof window !== "undefined" && (window as any).__ECHO_DONE__) {
+      handleTransitionComplete();
+    } else {
+      window.addEventListener("echo-transition-complete", handleTransitionComplete);
+    }
+
+    return () => {
+      if (typeof window !== "undefined") {
+        window.removeEventListener("echo-transition-complete", handleTransitionComplete);
+      }
+    };
+  }, [controls]);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -100,6 +145,8 @@ export default function HeroSection() {
             fill
             className="object-cover object-right"
             priority
+            onLoad={handleImageLoad}
+            onError={handleImageLoad}
           />
         </motion.div>
 
@@ -116,8 +163,7 @@ export default function HeroSection() {
           <motion.div
             className="relative w-full h-full"
             initial={{ y: "-10%", opacity: 1 }}
-            animate={{ y: "0%", opacity: 1 }}
-            transition={{ duration: 1.6, ease: "easeOut" }}
+            animate={layerControls}
           >
             <Image
               src={layer2Img}
@@ -125,6 +171,8 @@ export default function HeroSection() {
               fill
               className="object-cover object-center md:object-bottom"
               priority
+              onLoad={handleImageLoad}
+              onError={handleImageLoad}
             />
           </motion.div>
         </motion.div>
@@ -145,6 +193,8 @@ export default function HeroSection() {
             fill
             className="object-cover object-right"
             priority
+            onLoad={handleImageLoad}
+            onError={handleImageLoad}
           />
         </motion.div>
       </div>
@@ -168,8 +218,7 @@ export default function HeroSection() {
       >
         <motion.div
           initial={{ opacity: 0.01, x: "var(--start-x)", y: "var(--start-y)" }}
-          animate={{ opacity: 1, x: "0px", y: "0px" }}
-          transition={{ duration: 2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+          animate={controls}
           className="flex flex-col gap-2 max-w-2xl items-center text-center md:items-start md:text-left mx-auto md:mx-0 w-full px-6 sm:px-8 md:px-0 [--start-x:0px] [--start-y:40px] md:[--start-x:-40px] md:[--start-y:0px]"
         >
 
