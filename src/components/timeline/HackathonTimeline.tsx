@@ -4,11 +4,11 @@ import { motion, useScroll, useMotionValue, useSpring, useTransform, AnimatePres
 import { useRef, useState, useEffect } from "react";
 
 const milestones = [
-  { id: "m1", date: "May 30", title: "Theme Release", desc: "The grand reveal of the hackathon theme, setting the stage for innovation." },
-  { id: "m2", date: "June 15", title: "Website Live", desc: "Registration portal opens. Form your teams and secure your spots early." },
-  { id: "m3", date: "July 25", title: "Abstract Deadline", desc: "Final day to submit your project ideas and initial blueprints." },
-  { id: "m4", date: "August 10", title: "Shortlist Released", desc: "Announcement of the elite teams advancing to the final showdown." },
-  { id: "m5", date: "August 22", title: "Offline Hackathon", desc: "36 hours of intense building, networking, and competing." },
+  { id: "m1", date: "July 05", title: "Theme & Tracks Release", desc: "The grand reveal of the hackathon theme, setting the stage for innovation." },
+  { id: "m2", date: "July 12", title: "Website & Registration Live", desc: "Registration portal opens. Form your teams and secure your spots early." },
+  { id: "m3", date: "August 08", title: "Abstract Deadline", desc: "Final day to submit your project ideas and initial blueprints." },
+  { id: "m4", date: "August 24", title: "Shortlist Released", desc: "Announcement of the elite teams advancing to the final showdown." },
+  { id: "m5", date: "September 4-6", title: "Offline Hackathon", desc: "36 hours of intense building, networking, and competing." },
 ];
 
 type Milestone = typeof milestones[0];
