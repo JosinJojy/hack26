@@ -121,12 +121,33 @@ function TrackCard({ track, index }: { track: any; index: number }) {
             {track.title}
           </h3>
           
-          <p 
-            className="relative z-10 text-slate-400/90 text-sm md:text-xs lg:text-sm leading-[1.8] group-hover:text-slate-200 transition-colors duration-300 font-sans"
+          <motion.p 
+            className="relative z-10 text-slate-400/90 text-sm md:text-xs lg:text-sm leading-[1.8] group-hover:text-slate-200 transition-colors duration-300 font-sans whitespace-pre-wrap"
             style={{ transform: "translateZ(10px)" }}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-5%" }}
+            variants={{
+              visible: { 
+                transition: { 
+                  staggerChildren: 0.015, 
+                  delayChildren: animDelay + 0.5 
+                } 
+              } 
+            }}
           >
-            {track.description}
-          </p>
+            {track.description.split("").map((char: string, idx: number) => (
+              <motion.span 
+                key={idx} 
+                variants={{
+                  hidden: { opacity: 0 },
+                  visible: { opacity: 1 }
+                }}
+              >
+                {char}
+              </motion.span>
+            ))}
+          </motion.p>
           
           <div className="absolute top-0 right-0 w-3 h-3 border-t border-r border-[#0284c7]/30 group-hover:border-[#0284c7] group-hover:w-6 group-hover:h-6 transition-all duration-300" />
           <div className="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-[#0284c7]/30 group-hover:border-[#0284c7] group-hover:w-6 group-hover:h-6 transition-all duration-300" />
