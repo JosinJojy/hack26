@@ -225,7 +225,7 @@ export default function AboutAndTracksSection() {
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
-                className="relative p-8 md:p-12 bg-[#01020a]/90 backdrop-blur-xl border border-slate-700/40 shadow-[0_0_30px_rgba(2,132,199,0.05)] overflow-hidden"
+                className="relative p-8 md:p-12 bg-[#01020a]/10 backdrop-blur-sm border border-slate-700/40 shadow-[0_0_30px_rgba(2,132,199,0.05)] overflow-hidden"
                 style={{
                   clipPath: "polygon(40px 0, 100% 0, 100% calc(100% - 40px), calc(100% - 40px) 100%, 0 100%, 0 40px)",
                 }}
@@ -236,7 +236,7 @@ export default function AboutAndTracksSection() {
                 <div className="absolute bottom-0 left-0 w-6 h-6 border-b border-l border-[#0284c7]/50" />
                 
                 <p className="relative z-10 text-lg md:text-xl text-slate-300/90 font-light leading-relaxed md:leading-loose text-center font-sans">
-                  <span className="text-white font-medium">›.hack();_ ‘25</span> is the 6th edition of IEEE MACE SB's flagship event, a dynamic 36-hour premier hackathon where creative minds converge to craft innovative solutions to critical social challenges. 
+                  <span className="text-white font-medium">›.hack();_ ‘26</span> is the 7th edition of IEEE MACE SB's flagship event, a dynamic 36-hour premier hackathon where creative minds converge to craft innovative solutions to critical social challenges. 
                   <br /><br />
                   Notably, <span className="text-[#0284c7] font-medium">›.hack();_</span> has earned international acclaim by securing the <span className="text-white font-medium">IEEE Darrel Chong Student Activity Award</span>. 
                   In addition to the intense coding sessions, the event features inspiring keynote talks and valuable networking opportunities, uniting technology enthusiasts to shape the future.
