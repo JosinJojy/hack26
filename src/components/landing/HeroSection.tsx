@@ -219,18 +219,18 @@ export default function HeroSection() {
         <motion.div
           initial={{ opacity: 0.01, x: "var(--start-x)", y: "var(--start-y)" }}
           animate={controls}
-          className="flex flex-col gap-2 max-w-2xl items-center text-center md:items-start md:text-left mx-auto md:mx-0 w-full px-6 sm:px-8 md:px-0 [--start-x:0px] [--start-y:40px] md:[--start-x:-40px] md:[--start-y:0px]"
+          className="flex flex-col gap-2 max-w-2xl items-center text-center md:items-start md:text-left mx-auto md:mx-0 w-full px-2 min-[400px]:px-6 sm:px-8 md:px-0 [--start-x:0px] [--start-y:40px] md:[--start-x:-40px] md:[--start-y:0px]"
         >
 
           {/* Title */}
-          <h1 className="text-[5rem] sm:text-[6.5rem] md:text-8xl lg:text-9xl font-bold text-white tracking-tighter leading-[0.95] drop-shadow-lg font-blanka">
+          <h1 className="text-[13vw] min-[400px]:text-[5rem] sm:text-[6.5rem] md:text-8xl lg:text-9xl font-bold text-white tracking-tighter leading-[0.95] drop-shadow-lg font-blanka">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-100 to-[#38BDF8]">
               {">.hack26"}
             </span>
           </h1>
 
           {/* Subtitle */}
-          <p className="text-base sm:text-lg md:text-xl text-slate-300/90 font-light leading-relaxed max-w-md mt-2 px-4 md:px-0 font-sans">
+          <p className="text-sm min-[400px]:text-base sm:text-lg md:text-xl text-slate-300/90 font-light leading-relaxed max-w-md mt-2 px-2 min-[400px]:px-4 md:px-0 font-sans">
             Build bold ideas, ship real prototypes, and compete with the next
             generation of student innovators.
           </p>
@@ -239,11 +239,11 @@ export default function HeroSection() {
           <CountdownTimer targetDate="2026-09-04T00:00:00" />
 
           {/* CTAs - Devfolio Native Button styling */}
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mt-8 w-full sm:w-auto px-4 sm:px-0">
+          <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4 mt-8 w-full sm:w-auto px-4 sm:px-0">
             <motion.button
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="flex items-center justify-center gap-3 px-8 py-3.5 bg-[#3770FF] hover:bg-[#2B5DE5] text-white rounded-md font-semibold text-[17px] transition-colors shadow-lg w-full sm:w-auto min-w-[300px]"
+              className="flex items-center justify-center gap-3 px-6 py-3.5 bg-[#3770FF] hover:bg-[#2B5DE5] text-white rounded-md font-semibold text-[15px] sm:text-[17px] transition-colors shadow-lg w-[85vw] max-w-[280px] sm:w-auto sm:min-w-[300px]"
             >
               <svg className="w-6 h-6" viewBox="0 0 115.46 123.46" fill="#fff" xmlns="http://www.w3.org/2000/svg">
                 <path d="M115.46 68a55.43 55.43 0 0 1-50.85 55.11S28.12 131 16 123.76V68.13c0-15.54 11.23-26.68 26.68-26.68h72.78z"/>
