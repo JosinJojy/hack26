@@ -50,7 +50,7 @@ function MobileCarousel({ images, folder, delayOffset = 0 }: { images: string[],
       <div className="flex backface-hidden touch-pan-y">
         {images.map((img, index) => (
           <div key={img} className="flex-[0_0_75vw] sm:flex-[0_0_55vw] min-w-0 mr-4 md:mr-6">
-            <div className="relative group overflow-hidden rounded-xl bg-white/5 border border-white/10 aspect-[3/2] shadow-xl">
+            <div className="relative group overflow-hidden rounded-lg bg-white/5 border border-white/10 aspect-[3/2] shadow-xl">
               <Image
                 src={`/PreviousYear/${folder}/${img}`}
                 alt={`Hackathon ${folder} highlight ${index + 1}`}
@@ -59,7 +59,6 @@ function MobileCarousel({ images, folder, delayOffset = 0 }: { images: string[],
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </div>
           </div>
         ))}
@@ -109,7 +108,7 @@ export default function PreviousYearsPhotos() {
                 whileInView="visible"
                 viewport={{ once: true, margin: "-100px" }}
                 variants={itemVariants} 
-                className="relative group overflow-hidden rounded-xl bg-white/5 border border-white/10"
+                className="relative group overflow-hidden rounded-lg bg-white/5 border border-white/10"
               >
                 <Image
                   src={`/PreviousYear/${folder}/${item.img}`}
@@ -119,7 +118,6 @@ export default function PreviousYearsPhotos() {
                   className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </motion.div>
             ))}
           </div>
