@@ -183,7 +183,7 @@ export default function Footer() {
                 title="View on Google Maps"
               >
                 <MapPin className="w-5 h-5 text-[#0ea5e9]/70 group-hover:text-[#0ea5e9] transition-colors duration-300" />
-                <span>MA College Indoor Stadium</span>
+                <span>Baselious Paulose Indoor Stadium</span>
               </a>
               <p className="text-slate-500 font-mono text-xs md:text-sm uppercase tracking-widest mt-1">Kothamangalam</p>
             </div>

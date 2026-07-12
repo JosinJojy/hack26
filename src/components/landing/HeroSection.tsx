@@ -244,11 +244,13 @@ export default function HeroSection() {
             />
           </h1>
 
-          {/* Subtitle */}
-          <p className="text-xs sm:text-lg md:text-lg text-slate-300/90 font-light leading-relaxed max-w-md mt-2 px-2 min-[400px]:px-4 md:px-0 font-sans">
-            Build bold ideas, ship real prototypes, and compete with the next
-            generation of student innovators.
-          </p>
+          <div className="mt-2 md:mt-3 flex items-center gap-3 text-center md:text-left">
+            
+            <p className="text-[10px] sm:text-xs md:text-[13px] font-mono font-semibold uppercase tracking-[0.38em] text-white/95">
+              DEFINE DESIGN DEPLOY
+            </p>
+           
+          </div>
 
           {/* Countdown Timer */}
           <CountdownTimer targetDate="2026-09-04T00:00:00" />
