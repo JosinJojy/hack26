@@ -13,7 +13,7 @@ const sponsors = [
   { name: "Polygon", logo: "/sponsors/polygon.svg", alt: "Polygon Logo" },
   { name: "Devfolio", logo: "/sponsors/devfolio.svg", alt: "Devfolio Logo" },
   { name: "experion", logo: "/sponsors/experion.svg", alt: "experion Logo" },
-  { name: "solana", logo: "/sponsors/solana.svg", alt: "solana Logo" },
+  { name: "solana", logo: "/sponsors/solana.png", alt: "solana Logo" },
   { name: "replit", logo: "/sponsors/replit.svg", alt: "replit Logo" },
   { name: "Streamyard", logo: "/sponsors/streamyard.svg", alt: "Streamyard Logo" },
   { name: "keyvalue", logo: "/sponsors/keyvalue.jpeg", alt: "keyvalue Logo" },

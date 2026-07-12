@@ -5,7 +5,7 @@ export default function EventSchema() {
     "@context": "https://schema.org",
     "@type": "Event",
     "name": ".hack26",
-    "description": "IEEE SB MACE flagship hackathon.",
+    "description": "IEEE MACE SB flagship hackathon.",
     "image": "https://hack26.ieeemace.org/og-image.png",
     "startDate": "2026-09-04T00:00:00+05:30",
     "endDate": "2026-09-05T23:59:59+05:30",
