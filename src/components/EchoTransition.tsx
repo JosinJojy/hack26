@@ -62,14 +62,14 @@ export default function EchoTransition() {
             <div className="w-[400px] h-[400px] rounded-full bg-[#2563EB]/10 blur-[120px]" />
           </div>
 
-          {/* Faded IEEE MACE logo background */}
+          {/* Faded IEEE MACE logo background — only appears in the final transition stage */}
           <motion.div
             className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none"
-            initial={{ opacity: 0.0 }}
+            initial={{ opacity: 0 }}
             animate={{ opacity: 0.08 }}
-            transition={{ duration: 1.2, ease: "easeOut" }}
+            transition={{ delay: 6.5, duration: 1, ease: "easeOut" }}
           >
-            <div className="relative w-[clamp(12rem,34vw,24rem)] h-[clamp(12rem,34vw,24rem)] sm:w-[clamp(13rem,30vw,24rem)] sm:h-[clamp(13rem,30vw,24rem)] md:w-[clamp(15rem,28vw,26rem)] md:h-[clamp(15rem,28vw,26rem)]">
+            <div className="relative w-[clamp(16rem,42vw,28rem)] h-[clamp(16rem,42vw,28rem)] sm:w-[clamp(18rem,38vw,30rem)] sm:h-[clamp(18rem,38vw,30rem)] md:w-[clamp(20rem,34vw,32rem)] md:h-[clamp(20rem,34vw,32rem)]">
               <Image
                 src="/logos/IEEE-mace.png"
                 alt=""
