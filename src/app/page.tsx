@@ -1,6 +1,7 @@
 import HeroSection from '@/components/landing/HeroSection';
 import AboutAndTracksSection from '@/components/landing/AboutAndTracksSection';
 import HackathonTimeline from '@/components/timeline/HackathonTimeline';
+import RulesSection from '@/components/rules/RulesSection';
 import PreviousYearsPhotos from '@/components/previous-years/PreviousYearsPhotos';
 import SponsorsSection from '@/components/sponsors/SponsorsSection';
 import FAQSection from '@/components/faq/FAQSection';
@@ -16,6 +17,7 @@ export default function Home() {
       <HeroSection />
       <AboutAndTracksSection />
       <HackathonTimeline />
+      <RulesSection />
       <PreviousYearsPhotos />
       <SponsorsSection />
       <FAQSection />

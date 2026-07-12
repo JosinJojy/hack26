@@ -5,11 +5,11 @@ import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 
 const sponsors = [
-  { name: "Accelerate-X", logo: "/sponsors/accelerate-x.jpg", alt: "Accelerate-X Logo" },
   { name: "Verbwire", logo: "/sponsors/verbwire.svg", alt: "Verbwire Logo" },
   { name: "DigitalOcean", logo: "/sponsors/digitalocean.svg", alt: "DigitalOcean Logo" },
   { name: "eventopia", logo: "/sponsors/eventopia.svg", alt: "eventopia Logo" },
   { name: "Filecoin", logo: "/sponsors/filecoin.svg", alt: "Filecoin Logo" },
+  { name: "Accelerate-X", logo: "/sponsors/accelerate-x.jpg", alt: "Accelerate-X Logo" },
   { name: "Polygon", logo: "/sponsors/polygon.svg", alt: "Polygon Logo" },
   { name: "Devfolio", logo: "/sponsors/devfolio.svg", alt: "Devfolio Logo" },
   { name: "experion", logo: "/sponsors/experion.svg", alt: "experion Logo" },

@@ -153,7 +153,7 @@ export default function PreviousYearsPhotos() {
         {/* 2025 Section */}
         <div className="mb-24">
           <div className="flex items-center gap-4 mb-10">
-             <h3 className="text-3xl md:text-4xl font-bold text-white font-blanka tracking-wider">2025</h3>
+             <h3 className="text-xl md:text-2xl font-bold text-white font-blanka tracking-wider">2025</h3>
              <div className="h-[2px] flex-1 bg-gradient-to-r from-[#0ea5e9]/50 to-transparent"></div>
           </div>
           {renderMasonry(images2025, "2025", 0)}
@@ -162,7 +162,7 @@ export default function PreviousYearsPhotos() {
         {/* 2024 Section */}
         <div>
           <div className="flex items-center gap-4 mb-10">
-             <h3 className="text-3xl md:text-4xl font-bold text-white font-blanka tracking-wider">2024</h3>
+             <h3 className="text-xl md:text-2xl font-bold text-white font-blanka tracking-wider">2024</h3>
              <div className="h-[2px] flex-1 bg-gradient-to-r from-[#0ea5e9]/50 to-transparent"></div>
           </div>
           {renderMasonry(images2024, "2024", 1500)}
