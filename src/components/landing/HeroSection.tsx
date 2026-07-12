@@ -245,7 +245,7 @@ export default function HeroSection() {
           </h1>
 
           {/* Subtitle */}
-          <p className="text-sm sm:text-lg md:text-lg text-slate-300/90 font-light leading-relaxed max-w-md mt-2 px-2 min-[400px]:px-4 md:px-0 font-sans">
+          <p className="text-xs sm:text-lg md:text-lg text-slate-300/90 font-light leading-relaxed max-w-md mt-2 px-2 min-[400px]:px-4 md:px-0 font-sans">
             Build bold ideas, ship real prototypes, and compete with the next
             generation of student innovators.
           </p>

@@ -256,7 +256,7 @@ export default function AboutAndTracksSection() {
                 <div className="absolute top-0 right-0 w-6 h-6 border-t border-r border-[#0284c7]/50" />
                 <div className="absolute bottom-0 left-0 w-6 h-6 border-b border-l border-[#0284c7]/50" />
                 
-                <p className="relative z-10 text-lg md:text-xl text-slate-300/90 font-light leading-relaxed md:leading-loose text-center font-sans">
+                <p className="relative z-10 text-md md:text-xl text-slate-300/90 font-light leading-relaxed md:leading-loose text-center font-sans">
                   <span className="text-white font-medium">›.hack();_ ‘26</span> is the 7th edition of IEEE MACE SB's flagship event, a dynamic 36-hour premier hackathon where creative minds converge to craft innovative solutions to critical social challenges. 
                   <br /><br />
                   Notably, <span className="text-[#0284c7] font-medium">›.hack();_</span> has earned international acclaim by securing the <span className="text-white font-medium">IEEE Darrel Chong Student Activity Award</span>. 
