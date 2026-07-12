@@ -112,8 +112,8 @@ export default function HeroSection() {
       className="relative w-full h-[100dvh] overflow-hidden bg-[#010005]"
     >
       {/* Logos Header */}
-      <div className="absolute top-0 left-0 w-full p-6 md:p-8 flex flex-row gap-8 md:gap-0 justify-start md:justify-between items-start z-50 pointer-events-auto">
-        <div className="relative h-10 md:h-12 w-28 md:w-32 cursor-pointer transition-transform hover:scale-105">
+      <div className="absolute top-6 left-0 w-full px-6 md:px-8 h-12 flex flex-row gap-3 md:gap-0 justify-start md:justify-between items-center z-50 pointer-events-auto">
+        <div className="relative h-5 md:h-7 w-20 md:w-24 cursor-pointer transition-transform hover:scale-105">
           <Image 
             src="/logos/IEEE-mace.png" 
             alt="IEEE MACE SB Logo" 
@@ -122,10 +122,10 @@ export default function HeroSection() {
             priority
           />
         </div>
-        <div className="relative h-10 md:h-12 w-24 md:w-24 cursor-pointer transition-transform hover:scale-105">
+        <div className="relative h-5 md:h-7 w-16 md:w-20 cursor-pointer transition-transform hover:scale-105">
           <Image 
             src="/logos/IEEE.png" 
-            alt="IEEE  Logo" 
+            alt="IEEE Logo" 
             fill 
             className="object-contain object-left md:object-right" 
             priority
@@ -234,7 +234,7 @@ export default function HeroSection() {
         >
 
           {/* Title */}
-          <h1 className="relative w-full shrink-0 h-[12vw] min-[400px]:h-[4.75rem] sm:h-[6.175rem] md:h-[5.7rem] lg:h-[7.6rem]">
+          <h1 className="relative w-full shrink-0 h-[16vw] min-[400px]:h-[4.75rem] sm:h-[6.175rem] md:h-[5.7rem] lg:h-[7.6rem]">
             <Image
               src="/logos/hack-logo.png"
               alt=">.hack26"

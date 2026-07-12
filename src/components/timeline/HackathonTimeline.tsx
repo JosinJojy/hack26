@@ -69,7 +69,7 @@ export default function HackathonTimeline() {
   const isExpanded = phase === 3;
   
   // Faster, snappier collapse transition
-  const phase2Transition: any = { 
+  const phase2Transition: import("framer-motion").Transition = { 
     duration: 0.6, 
     ease: "easeInOut", 
     delay: phase === 2 ? 0.2 : 0 
@@ -103,7 +103,7 @@ export default function HackathonTimeline() {
 
       <motion.div 
          layout
-         transition={{ layout: phase === 2 ? phase2Transition : { duration: 0.6, ease: "easeInOut" } }}
+         transition={{ layout: phase === 2 ? phase2Transition : { duration: 0.6, ease: "easeInOut" } as import("framer-motion").Transition }}
          ref={containerRef} 
          className={`relative z-20 w-full max-w-6xl mx-auto flex 
            ${isExpanded ? 'flex-col gap-20 lg:gap-32 py-10 lg:py-20 px-4 md:px-12' : 'flex-row items-center h-[300px] px-4 md:px-16'}
@@ -153,13 +153,13 @@ export default function HackathonTimeline() {
   );
 }
 
-function TimelineNode({ milestone, index, phase, activeIndex, phase2Transition }: { milestone: Milestone, index: number, phase: number, activeIndex: number, phase2Transition: any }) {
+function TimelineNode({ milestone, index, phase, activeIndex, phase2Transition }: { milestone: Milestone, index: number, phase: number, activeIndex: number, phase2Transition: import("framer-motion").Transition }) {
   const isExpanded = phase === 3;
   const isLeft = index % 2 !== 0; 
   
   const isActive = !isExpanded || index === activeIndex;
   
-  const nodeLayoutTransition = phase === 2 ? phase2Transition : { duration: 0.6, ease: "easeInOut" };
+  const nodeLayoutTransition = phase === 2 ? phase2Transition : { duration: 0.6, ease: "easeInOut" } as import("framer-motion").Transition;
   
   const x = useMotionValue(0);
   const y = useMotionValue(0);
