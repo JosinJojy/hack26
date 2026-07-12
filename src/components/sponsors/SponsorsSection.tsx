@@ -5,15 +5,29 @@ import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 
 const sponsors = [
-  { name: "Microsoft", logo: "/sponsors/microsoft.svg", alt: "Microsoft Logo" },
-  { name: "Google", logo: "/sponsors/google.svg", alt: "Google Logo" },
-  { name: "AWS", logo: "/sponsors/aws.svg", alt: "AWS Logo" },
-  { name: "GitHub", logo: "/sponsors/github.svg", alt: "GitHub Logo" },
-  { name: "JetBrains", logo: "/sponsors/jetbrains.svg", alt: "JetBrains Logo" },
+  { name: "Accelerate-X", logo: "/sponsors/accelerate-x.jpg", alt: "Accelerate-X Logo" },
+  { name: "Verbwire", logo: "/sponsors/verbwire.svg", alt: "Verbwire Logo" },
+  { name: "DigitalOcean", logo: "/sponsors/digitalocean.svg", alt: "DigitalOcean Logo" },
+  { name: "eventopia", logo: "/sponsors/eventopia.svg", alt: "eventopia Logo" },
+  { name: "Filecoin", logo: "/sponsors/filecoin.svg", alt: "Filecoin Logo" },
   { name: "Polygon", logo: "/sponsors/polygon.svg", alt: "Polygon Logo" },
   { name: "Devfolio", logo: "/sponsors/devfolio.svg", alt: "Devfolio Logo" },
-  { name: "Replit", logo: "/sponsors/replit.svg", alt: "Replit Logo" },
+  { name: "experion", logo: "/sponsors/experion.svg", alt: "experion Logo" },
+  { name: "solana", logo: "/sponsors/solana.svg", alt: "solana Logo" },
+  { name: "replit", logo: "/sponsors/replit.svg", alt: "replit Logo" },
+  { name: "Streamyard", logo: "/sponsors/streamyard.svg", alt: "Streamyard Logo" },
+  { name: "keyvalue", logo: "/sponsors/keyvalue.jpeg", alt: "keyvalue Logo" },
+  { name: "Tezos", logo: "/sponsors/tezos.svg", alt: "Tezos Logo" },
+  { name: "QBurst", logo: "/sponsors/qburst.svg", alt: "QBurst Logo" },
+  { name: "being abroad", logo: "/sponsors/being-abroad.svg", alt: "being abroad Logo" },
+  { name: "innovation", logo: "/sponsors/innovation.svg", alt: "innovation Logo" },
+  { name: "orkes", logo: "/sponsors/orkes.jpeg", alt: "orkes Logo" },
+  { name: "innovater", logo: "/sponsors/innovature.svg", alt: "innovater Logo" },
+  { name: "WMC", logo: "/sponsors/wmc.jpeg", alt: "WMC Logo" },
+  { name: "ICT", logo: "/sponsors/ict.svg", alt: "ICT Logo" },
+  { name: "MBMM", logo: "/sponsors/experion.svg", alt: "experion Logo" },
 ];
+
 
 export default function SponsorsSection() {
   const sectionRef = useRef<HTMLElement>(null);
