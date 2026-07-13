@@ -168,7 +168,7 @@ export default function AboutAndTracksSection() {
   return (
     <>
       <style dangerouslySetInnerHTML={{ __html: globalStyles }} />
-      <div id="about" className="relative bg-[#010005]">
+      <div className="relative bg-[#010005]">
         
         {/* Sticky Centered Robot Background */}
         {/* Removed width constraints so object-contain can scale to true 100vh height */}
@@ -223,7 +223,7 @@ export default function AboutAndTracksSection() {
           </div>
 
           {/* ABOUT US SECTION */}
-          <div className="min-h-screen w-full flex flex-col justify-center items-center px-6 md:px-12 xl:px-24 py-24 md:py-32">
+          <div id="about" className="min-h-screen w-full flex flex-col justify-center items-center px-6 md:px-12 xl:px-24 py-24 md:py-32">
             <div className="w-full max-w-4xl flex flex-col gap-10">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
