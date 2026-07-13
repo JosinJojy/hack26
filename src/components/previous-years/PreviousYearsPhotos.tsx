@@ -126,7 +126,7 @@ export default function PreviousYearsPhotos() {
     );
   };
   return (
-    <section className="relative w-full bg-[#010005] py-20 lg:py-32 overflow-hidden font-sans border-t border-white/5">
+    <section id="past-highlights" className="relative w-full bg-[#010005] py-20 lg:py-32 overflow-hidden font-sans border-t border-white/5">
       {/* Background accents matching the timeline section */}
       <div className="absolute inset-0 pointer-events-none z-0">
         <div className="absolute top-0 left-0 w-full h-full bg-[linear-gradient(rgba(14,165,233,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(14,165,233,0.03)_1px,transparent_1px)] bg-[size:60px_60px]" />
