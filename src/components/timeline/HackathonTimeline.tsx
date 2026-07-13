@@ -4,11 +4,12 @@ import { motion, useScroll, useMotionValue, useSpring, useTransform, AnimatePres
 import { useRef, useState, useEffect } from "react";
 
 const milestones = [
-  { id: "m1", date: "July 05", title: "Theme & Tracks Release", desc: "The grand reveal of the hackathon theme, setting the stage for innovation." },
-  { id: "m2", date: "July 13", title: "Website Live", desc: "The official launch of our hackathon website." },
-  { id: "m3", date: "August 08", title: "Abstract Deadline", desc: "Final day to submit your project ideas and initial blueprints." },
-  { id: "m4", date: "August 24", title: "Shortlist Released", desc: "Announcement of the elite teams advancing to the final showdown." },
-  { id: "m5", date: "September 4-6", title: "Offline Hackathon", desc: "36 hours of intense building, networking, and competing." },
+  { id: "m1", date: "July 05", title: "Theme & Tracks Release", desc: "Grand reveal of the Hackathon Theme and Tracks." },
+  { id: "m2", date: "July 15", title: "Registrations Open", desc: "Teams can register and submit their abstracts" },
+  { id: "m3", date: "August 08", title: "Registrations Close ", desc: "Last day to submit your project abstract and secure your spot." },
+  { id: "m4", date: "August 24", title: "Shortlisted Teams", desc: "The teams advancing to the offline phase of the hackathon are announced." },
+  { id: "m5", date: "September 4", title: "Hackathon Kickoff", desc: "The countdown begins for 36 hours of intense building, networking, and competition." },
+  { id: "m6", date: "September 6", title: "Hackathon concludes", desc: "Projects are submitted, judging concludes, and the winners are revealed." },
 ];
 
 type Milestone = typeof milestones[0];
