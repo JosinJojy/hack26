@@ -105,6 +105,9 @@ export default function HeroSection() {
   const contentY = useTransform(smoothProgress, [0, 1], ["0%", "10%"]);
   const contentOpacity = useTransform(smoothProgress, [0, 0.8], [1, 0]);
 
+  const registrationOpenAt = new Date("2026-07-14T00:00:00+05:30");
+  const isRegistrationOpen = new Date() >= registrationOpenAt;
+
   return (
     <section
       id="home"
@@ -258,18 +261,27 @@ export default function HeroSection() {
           {/* CTAs - Devfolio Native Button styling */}
           <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4 mt-8 w-full sm:w-auto px-4 sm:px-0">
             <motion.a
-              href="https://dothack26.devfolio.co/"
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="flex items-center justify-center gap-3 px-6 py-3.5 bg-[#3770FF] hover:bg-[#2B5DE5] text-white rounded-md font-semibold text-[15px] sm:text-[17px] transition-colors shadow-lg w-[85vw] max-w-[280px] sm:w-auto sm:min-w-[300px]"
+              href={isRegistrationOpen ? "https://dothack26.devfolio.co/" : undefined}
+              target={isRegistrationOpen ? "_blank" : undefined}
+              rel={isRegistrationOpen ? "noopener noreferrer" : undefined}
+              onClick={(e) => {
+                if (!isRegistrationOpen) e.preventDefault();
+              }}
+              whileHover={isRegistrationOpen ? { scale: 1.02 } : undefined}
+              whileTap={isRegistrationOpen ? { scale: 0.98 } : undefined}
+              className={`flex items-center justify-center gap-3 px-6 py-3.5 rounded-md font-semibold text-[15px] sm:text-[17px] transition-colors shadow-lg w-[85vw] max-w-[280px] sm:w-auto sm:min-w-[300px] ${
+                isRegistrationOpen
+                  ? "bg-[#3770FF] hover:bg-[#2B5DE5] text-white"
+                  : "bg-slate-700/60 text-slate-300 opacity-60 pointer-events-none"
+              }`}
             >
-              <svg className="w-6 h-6" viewBox="0 0 115.46 123.46" fill="#fff" xmlns="http://www.w3.org/2000/svg">
-                <path d="M115.46 68a55.43 55.43 0 0 1-50.85 55.11S28.12 131 16 123.76V68.13c0-15.54 11.23-26.68 26.68-26.68h72.78z"/>
-                <path d="M115.46 56.46a55.43 55.43 0 0 0-50.85-55.11S28.12-6 16 1.24v55.63c0 15.54 11.23 26.68 26.68 26.68h72.78z"/>
-              </svg>
-              Apply with Devfolio
+              {isRegistrationOpen && (
+                <svg className="w-6 h-6" viewBox="0 0 115.46 123.46" fill="#fff" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M115.46 68a55.43 55.43 0 0 1-50.85 55.11S28.12 131 16 123.76V68.13c0-15.54 11.23-26.68 26.68-26.68h72.78z"/>
+                  <path d="M115.46 56.46a55.43 55.43 0 0 0-50.85-55.11S28.12-6 16 1.24v55.63c0 15.54 11.23 26.68 26.68 26.68h72.78z"/>
+                </svg>
+              )}
+              {isRegistrationOpen ? "Apply with Devfolio" : "Registration opens tomorrow"}
             </motion.a>
           </div>
         </motion.div>

@@ -5,7 +5,7 @@ import { useRef, useState, useEffect } from "react";
 
 const milestones = [
   { id: "m1", date: "July 05", title: "Theme & Tracks Release", desc: "The grand reveal of the hackathon theme, setting the stage for innovation." },
-  { id: "m2", date: "July 12", title: "Website & Registration Live", desc: "Registration portal opens. Form your teams and secure your spots early." },
+  { id: "m2", date: "July 13", title: "Website Live", desc: "The official launch of our hackathon website." },
   { id: "m3", date: "August 08", title: "Abstract Deadline", desc: "Final day to submit your project ideas and initial blueprints." },
   { id: "m4", date: "August 24", title: "Shortlist Released", desc: "Announcement of the elite teams advancing to the final showdown." },
   { id: "m5", date: "September 4-6", title: "Offline Hackathon", desc: "36 hours of intense building, networking, and competing." },
