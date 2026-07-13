@@ -74,7 +74,7 @@ export default function EchoTransition() {
                 src="/logos/IEEE-mace.png"
                 alt=""
                 fill
-                className="object-contain"
+                className="object-contain opacity-20"
                 priority
               />
             </div>
