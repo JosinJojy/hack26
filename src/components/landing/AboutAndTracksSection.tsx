@@ -152,6 +152,11 @@ function TrackCard({ track, index }: { track: any; index: number }) {
           <div className="absolute top-0 right-0 w-3 h-3 border-t border-r border-[#0284c7]/30 group-hover:border-[#0284c7] group-hover:w-6 group-hover:h-6 transition-all duration-300" />
           <div className="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-[#0284c7]/30 group-hover:border-[#0284c7] group-hover:w-6 group-hover:h-6 transition-all duration-300" />
 
+          <div className="absolute bottom-4 right-5 text-[9px] font-mono tracking-wider text-[#0284c7]/20 group-hover:text-[#0284c7]/60 transition-colors duration-300">
+            ENTRY 0{index+1}.2898
+          </div>
+
+
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-0 h-[1px] bg-gradient-to-r from-transparent via-[#0284c7] to-transparent group-hover:w-1/2 transition-all duration-500 opacity-0 group-hover:opacity-100" />
         </div>
       </motion.div>
