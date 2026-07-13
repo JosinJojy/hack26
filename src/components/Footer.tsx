@@ -55,7 +55,7 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row gap-8 w-full justify-center mb-20">
           {[
             { name: "Sooraj N S", role: "Team Lead", phone: "+91 83048 11633", id: "01", image: "/TeamLeads/Sooraj-N-S.webp", linkedin: "https://www.linkedin.com/in/sooraj-n-s1110" },
-            { name: "Kalyani B", role: "Team Lead", phone: "+91 70255 92234", id: "02", image: "/TeamLeads/Kalyani-B.webp", linkedin: "https://www.linkedin.com/in/kalyani324" }
+            { name: "Kalyani B", role: "Team Lead", phone: "+91 70255 92234", id: "02", image: "/TeamLeads/Kalyani-B.jpeg", linkedin: "https://www.linkedin.com/in/kalyani324" }
           ].map((person, i) => (
             <motion.div 
               key={person.name}

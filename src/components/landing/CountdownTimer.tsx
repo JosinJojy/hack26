@@ -44,6 +44,7 @@ export default function CountdownTimer({ targetDate }: CountdownTimerProps) {
   if (!isMounted) {
     return (
       <div className="mt-8 flex flex-col items-center md:items-start gap-1">
+        <span className="text-[10px] sm:text-xs text-slate-400/80 font-mono uppercase tracking-[0.2em] mb-1">hackathon starts in</span>
         <div className="flex items-center font-blanka text-4xl sm:text-5xl lg:text-6xl text-white/30 tracking-widest">
           00<span className="mx-2 text-white/10">:</span>00<span className="mx-2 text-white/10">:</span>00<span className="mx-2 text-white/10">:</span>00
         </div>
@@ -64,6 +65,7 @@ export default function CountdownTimer({ targetDate }: CountdownTimerProps) {
       transition={{ duration: 0.8, ease: "easeOut" }}
       className="mt-8 flex flex-col items-center md:items-start gap-2"
     >
+      <span className="text-[10px] sm:text-xs text-slate-400/80 font-mono uppercase tracking-[0.2em] mb-1">hackathon starts in</span>
       <div className="flex items-center font-blanka text-4xl sm:text-5xl lg:text-6xl font-bold text-white tracking-widest">
         <div className="flex flex-col items-center">
           <span>{timeLeft.d}</span>
