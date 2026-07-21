@@ -46,7 +46,74 @@ export default function SponsorsSection() {
       </div>
 
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
-        {/* Section Header */}
+        {/* Media Partner Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="flex flex-col items-center gap-4 mb-12 text-center px-4"
+        >
+          <div className="flex items-center gap-4 text-[#0ea5e9] font-medium tracking-[0.2em] text-xs uppercase">
+            <span className="w-12 h-[1px] bg-[#0ea5e9]/40" />
+            <span>Our Voices</span>
+            <span className="w-12 h-[1px] bg-[#0ea5e9]/40" />
+          </div>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight font-blanka uppercase">
+            Media Partner
+          </h2>
+        </motion.div>
+
+        {/* Media Partner Card */}
+        <motion.div
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          variants={{
+            hidden: {},
+            visible: {
+              transition: {
+                staggerChildren: 0.1,
+              },
+            },
+          }}
+          className="flex justify-center mb-24 lg:mb-32"
+        >
+          <motion.div
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: {
+                opacity: 1,
+                y: 0,
+                transition: { duration: 0.8, ease: "easeOut" },
+              },
+            }}
+            className="group relative w-full sm:w-1/2 lg:w-1/3"
+          >
+            {/* Sponsor Card */}
+            <div className="relative flex items-center justify-center h-32 md:h-40 p-6 transition-all duration-300 group-hover:-translate-y-1.5">
+              {/* Background with sharp chamfered edges */}
+              <div 
+                className="absolute inset-0 bg-[#01020a]/90 border border-slate-800 backdrop-blur-xl transition-all duration-500 ease-out z-0 group-hover:border-[#0ea5e9]/50"
+                style={{ clipPath: "polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px)" }}
+              />
+
+              {/* Cyberpunk corner accents sitting outside the chamfer */}
+              <div className="absolute top-0 left-0 w-4 h-4 border-t-[2px] border-l-[2px] border-transparent transition-all duration-500 z-10 group-hover:border-[#0ea5e9]" />
+              <div className="absolute bottom-0 right-0 w-4 h-4 border-b-[2px] border-r-[2px] border-transparent transition-all duration-500 z-10 group-hover:border-[#0ea5e9]" />
+
+              <div className="relative z-20 w-[75%] h-[55%] flex items-center justify-center mx-auto">
+                <Image
+                  src="/sponsors/media/Eventopia.png"
+                  alt="Eventopia Logo - Media Partner"
+                  fill
+                  className="object-contain opacity-80 group-hover:opacity-100 transition-all duration-300 group-hover:scale-[1.03]"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                />
+              </div>
+            </div>
+          </motion.div>
+        </motion.div>
+
+        {/* Previous Sponsors Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
