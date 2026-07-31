@@ -6,28 +6,51 @@ import { motion, useInView } from "framer-motion";
 
 const sponsors = [
   { name: "Verbwire", logo: "/sponsors/verbwire.svg", alt: "Verbwire Logo" },
-  { name: "DigitalOcean", logo: "/sponsors/digitalocean.svg", alt: "DigitalOcean Logo" },
+  {
+    name: "DigitalOcean",
+    logo: "/sponsors/digitalocean.svg",
+    alt: "DigitalOcean Logo",
+  },
   { name: "eventopia", logo: "/sponsors/eventopia.svg", alt: "eventopia Logo" },
   { name: "Filecoin", logo: "/sponsors/filecoin.svg", alt: "Filecoin Logo" },
-  { name: "Accelerate-X", logo: "/sponsors/accelerate-x.jpg", alt: "Accelerate-X Logo" },
+  {
+    name: "Accelerate-X",
+    logo: "/sponsors/accelerate-x.jpg",
+    alt: "Accelerate-X Logo",
+  },
   { name: "Polygon", logo: "/sponsors/polygon.svg", alt: "Polygon Logo" },
   { name: "Devfolio", logo: "/sponsors/devfolio.svg", alt: "Devfolio Logo" },
   { name: "experion", logo: "/sponsors/experion.svg", alt: "experion Logo" },
   { name: "solana", logo: "/sponsors/solana.png", alt: "solana Logo" },
   { name: "replit", logo: "/sponsors/replit.svg", alt: "replit Logo" },
-  { name: "Streamyard", logo: "/sponsors/streamyard.svg", alt: "Streamyard Logo" },
+  {
+    name: "Streamyard",
+    logo: "/sponsors/streamyard.svg",
+    alt: "Streamyard Logo",
+  },
   { name: "keyvalue", logo: "/sponsors/keyvalue.jpeg", alt: "keyvalue Logo" },
   { name: "Tezos", logo: "/sponsors/Tezos.svg", alt: "Tezos Logo" },
   { name: "QBurst", logo: "/sponsors/Qburst.svg", alt: "QBurst Logo" },
-  { name: "being abroad", logo: "/sponsors/being-abroad.svg", alt: "being abroad Logo" },
-  { name: "innovation", logo: "/sponsors/innovation.svg", alt: "innovation Logo" },
+  {
+    name: "being abroad",
+    logo: "/sponsors/being-abroad.svg",
+    alt: "being abroad Logo",
+  },
+  {
+    name: "innovation",
+    logo: "/sponsors/innovation.svg",
+    alt: "innovation Logo",
+  },
   { name: "orkes", logo: "/sponsors/orkes.jpeg", alt: "orkes Logo" },
-  { name: "innovater", logo: "/sponsors/innovature.svg", alt: "innovater Logo" },
+  {
+    name: "innovater",
+    logo: "/sponsors/innovature.svg",
+    alt: "innovater Logo",
+  },
   { name: "WMC", logo: "/sponsors/wmc.jpeg", alt: "WMC Logo" },
   { name: "ICT", logo: "/sponsors/ict.svg", alt: "ICT Logo" },
   { name: "MBMM", logo: "/sponsors/experion.svg", alt: "experion Logo" },
 ];
-
 
 export default function SponsorsSection() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -91,9 +114,12 @@ export default function SponsorsSection() {
             {/* Sponsor Card */}
             <div className="relative flex items-center justify-center h-32 md:h-40 p-6 transition-all duration-300 group-hover:-translate-y-1.5">
               {/* Background with sharp chamfered edges */}
-              <div 
+              <div
                 className="absolute inset-0 bg-[#01020a]/90 border border-slate-800 backdrop-blur-xl transition-all duration-500 ease-out z-0 group-hover:border-[#0ea5e9]/50"
-                style={{ clipPath: "polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px)" }}
+                style={{
+                  clipPath:
+                    "polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px)",
+                }}
               />
 
               {/* Cyberpunk corner accents sitting outside the chamfer */}
@@ -101,13 +127,15 @@ export default function SponsorsSection() {
               <div className="absolute bottom-0 right-0 w-4 h-4 border-b-[2px] border-r-[2px] border-transparent transition-all duration-500 z-10 group-hover:border-[#0ea5e9]" />
 
               <div className="relative z-20 w-[75%] h-[55%] flex items-center justify-center mx-auto">
-                <Image
-                  src="/sponsors/media/Eventopia.png"
-                  alt="Eventopia Logo - Media Partner"
-                  fill
-                  className="object-contain opacity-80 group-hover:opacity-100 transition-all duration-300 group-hover:scale-[1.03]"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
-                />
+                <a href="https://eventopia.in" target="_blank" rel="noopener noreferrer">
+                  <Image
+                    src="/sponsors/media/Eventopia.png"
+                    alt="Eventopia Logo - Media Partner"
+                    fill
+                    className="object-contain opacity-80 group-hover:opacity-100 transition-all duration-300 group-hover:scale-[1.03]"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                  />
+                </a>
               </div>
             </div>
           </motion.div>
@@ -164,9 +192,12 @@ export default function SponsorsSection() {
               {/* Sponsor Card */}
               <div className="relative flex items-center justify-center h-32 md:h-40 p-6 transition-all duration-300 group-hover:-translate-y-1.5">
                 {/* Background with sharp chamfered edges */}
-                <div 
+                <div
                   className="absolute inset-0 bg-[#01020a]/90 border border-slate-800 backdrop-blur-xl transition-all duration-500 ease-out z-0 group-hover:border-[#0ea5e9]/50"
-                  style={{ clipPath: "polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px)" }}
+                  style={{
+                    clipPath:
+                      "polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px)",
+                  }}
                 />
 
                 {/* Cyberpunk corner accents sitting outside the chamfer */}
