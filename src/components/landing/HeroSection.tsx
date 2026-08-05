@@ -284,7 +284,7 @@ export default function HeroSection() {
               {isRegistrationOpen ? "Apply with Devfolio" : "Registration opens tomorrow"}
             </motion.a>
             <motion.a
-              href="https://chat.whatsapp.com/GqOOJmxw6ThLcnUGwXhCxD"
+              href="https://chat.whatsapp.com/BdySvR3Vj5H6zqhAOJW1RN"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.02 }}
