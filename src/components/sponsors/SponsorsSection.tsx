@@ -124,7 +124,12 @@ export default function SponsorsSection() {
             className="group relative w-full sm:w-1/2 lg:w-1/3"
           >
             {/* Sponsor Card */}
-            <div className="relative flex items-center justify-center h-36 md:h-44 p-4 md:p-6 transition-all duration-300 group-hover:-translate-y-1.5">
+            <a 
+              href="https://devin.ai/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative flex items-center justify-center h-36 md:h-44 p-4 md:p-6 transition-all duration-300 group-hover:-translate-y-1.5 block cursor-pointer"
+            >
               {/* Background with sharp chamfered edges */}
               <div 
                 className="absolute inset-0 bg-[#01020a]/90 border border-slate-800 backdrop-blur-xl transition-all duration-500 ease-out z-0 group-hover:border-[#0ea5e9]/50"
@@ -144,7 +149,7 @@ export default function SponsorsSection() {
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                 />
               </div>
-            </div>
+            </a>
           </motion.div>
         </motion.div>
 
@@ -186,7 +191,12 @@ export default function SponsorsSection() {
             className="group relative w-full sm:w-1/2 lg:w-1/3"
           >
             {/* Sponsor Card */}
-            <div className="relative flex items-center justify-center h-36 md:h-44 p-4 md:p-6 transition-all duration-300 group-hover:-translate-y-1.5">
+            <a 
+              href="https://www.keyvalue.systems/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative flex items-center justify-center h-36 md:h-44 p-4 md:p-6 transition-all duration-300 group-hover:-translate-y-1.5 block cursor-pointer"
+            >
               {/* Background with sharp chamfered edges */}
               <div 
                 className="absolute inset-0 bg-[#01020a]/90 border border-slate-800 backdrop-blur-xl transition-all duration-500 ease-out z-0 group-hover:border-[#0ea5e9]/50"
@@ -206,7 +216,7 @@ export default function SponsorsSection() {
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                 />
               </div>
-            </div>
+            </a>
           </motion.div>
         </motion.div>
 
