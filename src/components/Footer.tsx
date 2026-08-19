@@ -140,7 +140,7 @@ export default function Footer() {
               { icon: Twitter, label: "X_COM", href: "https://x.com/ieeemace" },
               { icon: Linkedin, label: "LINKEDIN", href: "https://www.linkedin.com/company/ieeemace/" },
               { icon: Globe, label: "WEB_NET", href: "https://www.ieeemace.org/" },
-              { icon: Whatsapp, label: "WHATSAPP", href: "https://chat.whatsapp.com/GqOOJmxw6ThLcnUGwXhCxD" },
+              { icon: Whatsapp, label: "WHATSAPP", href: "https://chat.whatsapp.com/BdySvR3Vj5H6zqhAOJW1RN" },
             ].map((social) => {
               const Icon = social.icon;
               return (
