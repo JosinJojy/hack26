@@ -155,7 +155,7 @@ export default function HeroSection() {
         >
           <Image
             src={layer3Img}
-            alt="IEEE SB MACE .hack26 hackathon background layer 3"
+            alt="IEEE MACE SB .hack26 hackathon background layer 3"
             fill
             className="object-cover object-right"
             priority
@@ -181,7 +181,7 @@ export default function HeroSection() {
           >
             <Image
               src={layer2Img}
-              alt="IEEE SB MACE .hack26 hackathon background layer 2"
+              alt="IEEE MACE SB .hack26 hackathon background layer 2"
               fill
               className="object-cover object-center md:object-bottom"
               priority

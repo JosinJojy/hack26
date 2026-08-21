@@ -22,12 +22,13 @@ const orbitron = Orbitron({
 
 export const metadata: Metadata = {
   title: ".hack26 | IEEE MACE SB",
-  description: "Experience .hack26, the flagship hackathon by IEEE Student Branch MACE. Build innovative solutions, solve real-world challenges, and shape the future with technology.",
+  description: "Experience .hack26, the flagship hackathon by IEEE Student Branch MACE. Define, design, and deploy innovative solutions to solve real-world challenges.",
   keywords: [
     ".hack26",
     "hack26",
     "dothack26",
     "IEEE hackathon",
+    "IEEE MACE SB",
     "IEEE SB MACE",
     "MACE hackathon",
     "student hackathon",
@@ -39,16 +40,16 @@ export const metadata: Metadata = {
     "engineering hackathon 2026",
   ],
   authors: [{ name: "IEEE Student Branch MACE" }],
-  creator: "IEEE SB MACE",
-  publisher: "IEEE SB MACE",
+  creator: "IEEE MACE SB",
+  publisher: "IEEE MACE SB",
   category: "technology",
   applicationName: ".hack26",
   metadataBase: new URL("https://hack26.ieeemace.org"),
   openGraph: {
     type: "website",
-    title: ".hack26 | IEEE SB MACE Flagship Hackathon 2026",
-    description: "IEEE SB MACE flagship hackathon bringing together innovators and developers to build impactful solutions.",
-    siteName: ".hack26 IEEE SB MACE",
+    title: ".hack26 | IEEE MACE SB Flagship Hackathon 2026",
+    description: "IEEE MACE SB flagship hackathon bringing together innovators and developers to define, design, and deploy impactful solutions.",
+    siteName: ".hack26 IEEE MACE SB",
     locale: "en_IN",
     images: [
       {
@@ -61,9 +62,16 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: ".hack26 | IEEE SB MACE Hackathon 2026",
-    description: "Build. Innovate. Change the future.",
+    title: ".hack26 | IEEE MACE SB Hackathon 2026",
+    description: "Define. Design. Deploy.",
     images: ["/og-image.png"],
+  },
+  icons: {
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/icon.png", type: "image/png" },
+    ],
+    apple: "/apple-icon.png",
   },
 };
 

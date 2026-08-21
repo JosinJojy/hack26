@@ -83,7 +83,7 @@ export default function Footer() {
                   <div className="w-full aspect-[3/4] shrink-0 rounded-sm overflow-hidden border border-[#0ea5e9]/30 group-hover:border-[#0ea5e9] transition-colors duration-500 relative bg-[#01020a]">
                     <Image 
                       src={person.image} 
-                      alt={`Portrait of ${person.name}, ${person.role} at IEEE SB MACE .hack26`}
+                      alt={`Portrait of ${person.name}, ${person.role} at IEEE MACE SB .hack26`}
                       fill
                       className="object-cover transition-all duration-500 object-top" 
                     />

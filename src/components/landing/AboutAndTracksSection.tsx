@@ -176,7 +176,7 @@ export default function AboutAndTracksSection() {
           <div className="relative w-full h-full opacity-30 md:opacity-80">
             <Image
               src={page2Img}
-              alt="Futuristic cyber robot for IEEE SB MACE .hack26 hackathon"
+              alt="Futuristic cyber robot for IEEE MACE SB .hack26 hackathon"
               fill
               className="object-contain object-center"
               priority

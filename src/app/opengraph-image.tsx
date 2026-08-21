@@ -3,7 +3,7 @@ import { ImageResponse } from 'next/og';
 export const runtime = 'edge';
 
 // Image metadata
-export const alt = '.hack26 | IEEE SB MACE Flagship Hackathon 2026';
+export const alt = '.hack26 | IEEE MACE SB Flagship Hackathon 2026';
 export const size = {
   width: 1200,
   height: 630,
@@ -73,7 +73,7 @@ export default async function Image() {
               marginBottom: '20px',
             }}
           >
-            IEEE SB MACE
+            IEEE MACE SB
           </div>
           
           <div
@@ -118,7 +118,7 @@ export default async function Image() {
           }}
         >
           <div style={{ fontSize: '24px', color: '#94a3b8', display: 'flex', alignItems: 'center' }}>
-            <span style={{ color: '#38bdf8', marginRight: '10px' }}>//</span> Build. Innovate. Change the future.
+            <span style={{ color: '#38bdf8', marginRight: '10px' }}>//</span> Define. Design. Deploy.
           </div>
           <div style={{ fontSize: '24px', color: '#38bdf8', fontWeight: 600 }}>
             hack26.ieeemace.org
