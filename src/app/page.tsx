@@ -4,6 +4,7 @@ import HackathonTimeline from '@/components/timeline/HackathonTimeline';
 import RulesSection from '@/components/rules/RulesSection';
 import PreviousYearsPhotos from '@/components/previous-years/PreviousYearsPhotos';
 import SponsorsSection from '@/components/sponsors/SponsorsSection';
+import LocationSection from '@/components/location/LocationSection';
 import FAQSection from '@/components/faq/FAQSection';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -20,6 +21,7 @@ export default function Home() {
       <RulesSection />
       <PreviousYearsPhotos />
       <SponsorsSection />
+      <LocationSection />
       <FAQSection />
       <Footer />
     </main>
