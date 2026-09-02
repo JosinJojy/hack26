@@ -1,13 +1,17 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 
 export default function EchoTransition() {
+  const pathname = usePathname();
   const [show, setShow] = useState(true);
 
   useEffect(() => {
+    if (pathname !== "/") return;
+
     let isHeroReady = (typeof window !== "undefined" && (window as any).__HERO_READY__) || false;
     let isMinTimePassed = false;
 
@@ -45,7 +49,11 @@ export default function EchoTransition() {
       }
       clearTimeout(timer);
     };
-  }, []);
+  }, [pathname]);
+
+  if (pathname !== "/") {
+    return null;
+  }
 
   return (
     <AnimatePresence>
