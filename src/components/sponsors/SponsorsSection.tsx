@@ -153,6 +153,73 @@ export default function SponsorsSection() {
           </motion.div>
         </motion.div>
 
+        {/* Silver Sponsors Subsection Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.8, ease: "easeOut", delay: 0.1 }}
+          className="flex flex-col items-center gap-2 mb-12 text-center px-4"
+        >
+          <h3 className="text-2xl md:text-3xl font-bold text-[#c0c0c0] tracking-wider uppercase font-blanka">
+            Silver Sponsors
+          </h3>
+        </motion.div>
+
+        {/* Silver Sponsors Grid */}
+        <motion.div
+          initial="hidden"
+          animate={isInView ? "visible" : "hidden"}
+          variants={{
+            hidden: {},
+            visible: {
+              transition: {
+                staggerChildren: 0.1,
+              },
+            },
+          }}
+          className="flex justify-center mb-16 lg:mb-24"
+        >
+          <motion.div
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: {
+                opacity: 1,
+                y: 0,
+                transition: { duration: 0.8, ease: "easeOut" },
+              },
+            }}
+            className="group relative w-full sm:w-1/2 lg:w-1/3"
+          >
+            {/* Sponsor Card */}
+            <a 
+              href="http://www.southindianbank.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative flex items-center justify-center h-50 md:h-60 p-4 md:p-6 transition-all duration-300 group-hover:-translate-y-1.5 block cursor-pointer"
+            >
+              {/* Background with sharp chamfered edges */}
+              <div 
+                className="absolute inset-0 bg-[#01020a]/90 border border-slate-800 backdrop-blur-xl transition-all duration-500 ease-out z-0 group-hover:border-[#0ea5e9]/50"
+                style={{ clipPath: "polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px)" }}
+              />
+
+              {/* Cyberpunk corner accents sitting outside the chamfer */}
+              <div className="absolute top-0 left-0 w-4 h-4 border-t-[2px] border-l-[2px] border-transparent transition-all duration-500 z-10 group-hover:border-[#0ea5e9]" />
+              <div className="absolute bottom-0 right-0 w-4 h-4 border-b-[2px] border-r-[2px] border-transparent transition-all duration-500 z-10 group-hover:border-[#0ea5e9]" />
+
+              <div className="relative z-20 w-[95%] h-[85%] md:w-[90%] md:h-[80%] flex items-center justify-center mx-auto">
+                <Image
+                  src="/sponsors/silver/South-Indian-Bank-Logo.png"
+                  alt="South Indian Bank Logo - Silver Sponsor"
+                  fill
+                  className="object-contain opacity-80 group-hover:opacity-100 transition-all duration-300 group-hover:scale-[1.03]"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                />
+              </div>
+            </a>
+          </motion.div>
+        </motion.div>
+
         {/* Bronze Sponsors Subsection Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -177,8 +244,9 @@ export default function SponsorsSection() {
               },
             },
           }}
-          className="flex justify-center mb-24 lg:mb-32"
+          className="flex flex-col md:flex-row justify-center items-center gap-6 md:gap-8 mb-24 lg:mb-32"
         >
+          {/* First Bronze Sponsor */}
           <motion.div
             variants={{
               hidden: { opacity: 0, y: 20 },
@@ -188,7 +256,7 @@ export default function SponsorsSection() {
                 transition: { duration: 0.8, ease: "easeOut" },
               },
             }}
-            className="group relative w-full sm:w-1/2 lg:w-1/3"
+            className="group relative w-full sm:w-[80%] md:w-1/2 lg:w-1/3"
           >
             {/* Sponsor Card */}
             <a 
@@ -217,6 +285,42 @@ export default function SponsorsSection() {
                 />
               </div>
             </a>
+          </motion.div>
+
+          {/* Second Bronze Sponsor */}
+          <motion.div
+            variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: {
+                opacity: 1,
+                y: 0,
+                transition: { duration: 0.8, ease: "easeOut" },
+              },
+            }}
+            className="group relative w-full sm:w-[80%] md:w-1/2 lg:w-1/3"
+          >
+            {/* Sponsor Card */}
+            <div className="relative flex items-center justify-center h-36 md:h-44 p-4 md:p-6 transition-all duration-300 group-hover:-translate-y-1.5 block">
+              {/* Background with sharp chamfered edges */}
+              <div 
+                className="absolute inset-0 bg-[#01020a]/90 border border-slate-800 backdrop-blur-xl transition-all duration-500 ease-out z-0 group-hover:border-[#0ea5e9]/50"
+                style={{ clipPath: "polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px)" }}
+              />
+
+              {/* Cyberpunk corner accents sitting outside the chamfer */}
+              <div className="absolute top-0 left-0 w-4 h-4 border-t-[2px] border-l-[2px] border-transparent transition-all duration-500 z-10 group-hover:border-[#0ea5e9]" />
+              <div className="absolute bottom-0 right-0 w-4 h-4 border-b-[2px] border-r-[2px] border-transparent transition-all duration-500 z-10 group-hover:border-[#0ea5e9]" />
+
+              <div className="relative z-20 w-[90%] h-[75%] md:w-[85%] md:h-[70%] flex items-center justify-center mx-auto">
+                <Image
+                  src="/sponsors/bronze/SBI-logo.png"
+                  alt="SBI Logo - Bronze Sponsor"
+                  fill
+                  className="object-contain opacity-80 group-hover:opacity-100 transition-all duration-300 group-hover:scale-[1.03]"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                />
+              </div>
+            </div>
           </motion.div>
         </motion.div>
 
