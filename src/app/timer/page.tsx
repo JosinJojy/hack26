@@ -598,7 +598,7 @@ export default function FramedVideoTimerPage() {
 
                   {/* Middle: Sponsor Logos */}
                   <div className="hidden lg:flex absolute left-1/2 -translate-x-1/2 items-center gap-3 xl:gap-4">
-                    {["Actionrich-logo2.png", "HIO-logo2.png", "SBI-logo2.png", "South-Indian-Bank-logo2.png", "arduino-uno-logo.png", "devin.png", "key-value-logo.png"].map((sponsor) => (
+                    {["SBI-logo2.png","key-value-logo.png","devin.png" ,"South-Indian-Bank-logo2.png","arduino-uno-logo.png"].map((sponsor) => (
                       <div key={sponsor} className="relative h-6 sm:h-8 w-14 sm:w-20 opacity-85 hover:opacity-100 transition-opacity">
                         <Image
                           src={`/sponsors/timer/${sponsor}`}
