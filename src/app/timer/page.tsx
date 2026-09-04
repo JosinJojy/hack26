@@ -596,6 +596,21 @@ export default function FramedVideoTimerPage() {
                     </div>
                   </div>
 
+                  {/* Middle: Sponsor Logos */}
+                  <div className="hidden lg:flex absolute left-1/2 -translate-x-1/2 items-center gap-3 xl:gap-4">
+                    {["Actionrich-logo2.png", "HIO-logo2.png", "SBI-logo2.png", "South-Indian-Bank-logo2.png", "arduino-uno-logo.png", "devin.png", "key-value-logo.png"].map((sponsor) => (
+                      <div key={sponsor} className="relative h-6 sm:h-8 w-14 sm:w-20 opacity-85 hover:opacity-100 transition-opacity">
+                        <Image
+                          src={`/sponsors/timer/${sponsor}`}
+                          alt={sponsor.replace('-logo.png', '').replace('.png', '').replace('-Logo', '')}
+                          fill
+                          className="object-contain"
+                          priority
+                        />
+                      </div>
+                    ))}
+                  </div>
+
                   {/* Right Side: IEEE Logos, Elapsed Badge & Zoom Controls */}
                   <div className="flex items-center gap-3 sm:gap-4">
                     <div className="flex items-center gap-2 sm:gap-3">
